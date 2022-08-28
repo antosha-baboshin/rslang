@@ -33,31 +33,35 @@ class Aut{
     }
 
     async addUser(email:string, password:string, name:string) {
-      
+       let usr= (this.avatara!='' ) ?{name:name, email:email, password:password,img_buf:this.avatara }
+                                    :{name:name, email:email, password:password};
        fetch(this.srv+'/users', {
        method: 'POST',
        headers: {
          'Accept': 'application/json',
          'Content-Type': 'application/json'
        },
-       body: JSON.stringify({name:name, email:email, password:password,img_buf:this.avatara })
+       body: JSON.stringify(usr)
      })
       .then(async res => {
-          
+          if (res.ok){
           const data=  await res.json()
           this.id=data.id;
           this.email=email;
           this.name=name;
-          console.log('User added ', this.id, ' ', this.email,' ' , this.name)
+          console.log('User added ', data.id)
           this.SignIn(email,password)
+          } else console.log('ERROR ',data.error) 
+          
       })
-      .catch(res => console.log('ERROR adding user', res))
+      .catch(() => console.log('ERROR adding user'))
     }
 
     viewAva(elem: HTMLElement){
       const img = document.createElement("img") as HTMLImageElement;
       img.classList.add("obj");
       //img.width=100
+      elem.innerHTML='';
       elem.appendChild(img);
       img.setAttribute('src', this.avatara);
     }
@@ -93,7 +97,7 @@ class Aut{
 
         
     })
-    .catch(res => console.log('ERROR autorization',res))
+    .catch(() => console.log('ERROR authorization'))
   }
 
   async getUser(){
@@ -110,7 +114,7 @@ class Aut{
   .then(async  res => {
       const data=  await res.json()
       this.name=data.name;
-      this.avatara=data.img_buf;
+      if (data.img_buf) this.avatara=data.img_buf;
       this.savUser();
       this.viewUser()
       
