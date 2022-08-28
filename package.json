@@ -1,5 +1,5 @@
 {
-  "name": "asyncrace",
+  "name": "rslang",
   "version": "1.0.0",
   "main": "webpack.base.config.js",
   "scripts": {
@@ -11,14 +11,18 @@
   },
   "devDependencies": {
     "@types/jest": "^28.1.6",
+    "@types/node": "^18.7.13",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
+    "binary": "^0.3.0",
+    "body-parser": "^1.20.0",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
     "eslint": "^8.20.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "jquery": "^3.6.0",
+    "js-base64": "^3.7.2",
     "mock-local-storage": "^1.1.23",
     "style-loader": "^3.3.1",
     "ts-jest": "^28.0.7",
@@ -29,6 +33,10 @@
     "webpack-dev-server": "^4.9.3"
   },
   "dependencies": {
-    "jest-transform-stub": "^2.0.0"
+    "buffer": "^6.0.3",
+    "fs": "^0.0.1-security",
+    "image-js": "^0.35.1",
+    "jest-transform-stub": "^2.0.0",
+    "mongoose": "^6.5.3"
   }
 }

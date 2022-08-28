@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require("webpack")
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -30,12 +31,18 @@ const baseConfig = {
     },
     output: {
         filename: 'index.js',
-        path: path.resolve(__dirname, '../dist/asyncrace'),
+        path: path.resolve(__dirname, '../dist/rslang'),
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html'),
             filename: 'index.html',
+        }),
+        new webpack.ProvidePlugin({
+            Buffer: ['Buffer'],
+        }),
+        new webpack.ProvidePlugin({
+            process: 'process/browser',
         }),
         new CleanWebpackPlugin(),
     ],
