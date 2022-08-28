@@ -33,7 +33,7 @@ class Aut{
     }
 
     async addUser(email:string, password:string, name:string) {
-       let usr= (this.avatara!='' ) ?{name:name, email:email, password:password,img_buf:this.avatara }
+       const usr= (this.avatara!='' ) ?{name:name, email:email, password:password,img_buf:this.avatara }
                                     :{name:name, email:email, password:password};
        fetch(this.srv+'/users', {
        method: 'POST',
@@ -51,7 +51,7 @@ class Aut{
           this.name=name;
           console.log('User added ', data.id)
           this.SignIn(email,password)
-          } else console.log('ERROR ',data.error) 
+          } else console.log('Users ERROR') 
           
       })
       .catch(() => console.log('ERROR adding user'))
@@ -187,7 +187,7 @@ class Aut{
          console.log('New token generated ')
          this.savUser();
      })
-     .catch(res => console.log('ERROR renew token',res)) 
+     .catch(()=> {console.log('ERROR renew token'); this.SignOut()}) 
   }
   SignOut()
   {  localStorage.removeItem('autority')
