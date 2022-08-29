@@ -1,7 +1,5 @@
 const BASE: string = 'https://react-learnwords-example.herokuapp.com';
-
 const WORDS: string = `${BASE}/words`;
-
 const getWords = async (group: number, page: number) => {
   let response = await fetch(`${WORDS}?group=${group}&page=${page}`);
   if (response.ok) {
@@ -11,7 +9,7 @@ const getWords = async (group: number, page: number) => {
   }
 }
 
-const renderWordsList = async (group: number, page: number) => {
+export const renderWordsList = async (group: number, page: number): Promise<void> => {
   const WORDS_LIST_WRAPPER = document.querySelector('.words-list-wrapper') as HTMLDivElement;
   let data = await getWords(group, page);
 
