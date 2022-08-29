@@ -1,4 +1,4 @@
-const BASE: string = 'https://react-learnwords-example.herokuapp.com';
+const BASE: string = 'https://sveta077-rslang.herokuapp.com';
 const WORDS: string = `${BASE}/words`;
 const getWords = async (group: number, page: number) => {
   let response = await fetch(`${WORDS}?group=${group}&page=${page}`);
