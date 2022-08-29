@@ -1,3 +1,4 @@
 import { addWordsList } from "../src/ebook/ebook";
+import './styles.css'
 
-console.log(1);
+addWordsList();
