@@ -38,6 +38,10 @@ const baseConfig = {
             template: path.resolve(__dirname, './src/index.html'),
             filename: 'index.html',
         }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/ebook/ebook.html'),
+            filename: 'ebook.html',
+        }),
         new webpack.ProvidePlugin({
             Buffer: ['Buffer'],
         }),
