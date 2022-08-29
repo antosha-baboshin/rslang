@@ -39,7 +39,7 @@ const baseConfig = {
             filename: 'index.html',
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/ebook/ebook.html'),
+            template: path.resolve(__dirname, './src/components/ebook/ebook.html'),
             filename: 'ebook.html',
         }),
         new webpack.ProvidePlugin({

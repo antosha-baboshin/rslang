@@ -62,4 +62,3 @@ const getAudioUrls = async (id: string): Promise<string[] | undefined> => {
     console.log('error', response.status);
   }
 };
-renderWordsList(2, 2);
