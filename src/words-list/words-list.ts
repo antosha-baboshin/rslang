@@ -1,11 +1,11 @@
-const BASE: string = 'https://react-learnwords-example.herokuapp.com';
+const BASE = 'https://react-learnwords-example.herokuapp.com';
 
-const WORDS: string = `${BASE}/words`;
+const WORDS = `${BASE}/words`;
 
 const getWords = async (group: number, page: number) => {
-  let response = await fetch(`${WORDS}?group=${group}&page=${page}`);
+  const response = await fetch(`${WORDS}?group=${group}&page=${page}`);
   if (response.ok) {
-    return await response.json();;
+    return await response.json();
   } else {
     console.log('error', response.status);
   }
@@ -13,7 +13,7 @@ const getWords = async (group: number, page: number) => {
 
 const renderWordsList = async (group: number, page: number) => {
   const WORDS_LIST_WRAPPER = document.querySelector('.words-list-wrapper') as HTMLDivElement;
-  let data = await getWords(group, page);
+  const data = await getWords(group, page);
 
   const WORDS_TABLE = `
     ${data.map((obj: any) => `
@@ -56,9 +56,9 @@ const createAudioplayers = () => {
 }
 
 const getAudioUrls = async (id: string): Promise<string[] | undefined> => {
-  let response = await fetch(`${WORDS}/${id}`);
+  const response = await fetch(`${WORDS}/${id}`);
   if (response.ok) {
-    let word = await response.json();
+    const word = await response.json();
     return [word.audio, word.audioMeaning, word.audioExample];
   } else {
     console.log('error', response.status);
