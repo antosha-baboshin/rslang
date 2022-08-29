@@ -1,4 +1,8 @@
 import { addWordsList } from "../src/ebook/ebook";
 import './styles.css'
 
-addWordsList();
+const addEbook = () => {
+  addWordsList();
+}
+
+addEbook();

@@ -24,3 +24,12 @@
 .level:hover {
   background-color: aqua;
 }
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.arrow {
+  cursor: pointer;
+}
