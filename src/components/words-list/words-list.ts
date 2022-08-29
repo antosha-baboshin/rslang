@@ -1,5 +1,5 @@
-const BASE: string = 'https://sveta077-rslang.herokuapp.com';
-const WORDS: string = `${BASE}/words`;
+export const BASE: string = 'https://sveta077-rslang.herokuapp.com';
+export const WORDS: string = `${BASE}/words`;
 const getWords = async (group: number, page: number) => {
   let response = await fetch(`${WORDS}?group=${group}&page=${page}`);
   if (response.ok) {
@@ -26,18 +26,20 @@ export const renderWordsList = async (group: number, page: number): Promise<void
         <p>${obj.textExample}</p>
         <p>(<i>${obj.textExampleTranslate}</i>)</p>
       </div>
-      <audio controls class='audio' id=${obj.id}></audio>
-      <div class="learning-buttons">${renderLearningsButtons()}</div>
+      <audio controls class='audio' id='audio-${obj.id}'></audio>
+      <div class="learning-buttons">${renderLearningsButtons(obj.id)}</div>
     </div>`).join('')}
   `;
   WORDS_LIST_WRAPPER.innerHTML = WORDS_TABLE;
+
   createAudioplayers();
+  addDifficultWords();
 }
 
-const createAudioplayers = () => {
+export const createAudioplayers = () => {
   const AUDIOPLAYERS = document.querySelectorAll('.audio') as NodeListOf<HTMLAudioElement>;
   AUDIOPLAYERS.forEach((el) => {
-    getAudioUrls(el.id).then((arr) => {
+    getAudioUrls(el.id.slice(6)).then((arr) => {
       let current = 0;
       el.src = `${BASE + '/' + arr![0]}`;
       el.onended = () => {
@@ -54,7 +56,7 @@ const createAudioplayers = () => {
   })
 }
 
-const getAudioUrls = async (id: string): Promise<string[] | undefined> => {
+export const getAudioUrls = async (id: string): Promise<string[] | undefined> => {
   let response = await fetch(`${WORDS}/${id}`);
   if (response.ok) {
     let word = await response.json();
@@ -64,9 +66,24 @@ const getAudioUrls = async (id: string): Promise<string[] | undefined> => {
   }
 };
 
-const renderLearningsButtons = () => {
+export const renderLearningsButtons = (id: string) => {
   const LEARNING_BUTTONS_WRAPPER = document.querySelector('.learning-buttons');
   if (!localStorage.autority) return '';
-  return `<div class="learning-button">Difficult</div>
-          <div class="learning-button">Learned</div>`
+  return `<div class="learning-button difficult-button" id='diff-${id}'>Difficult</div>
+          <div class="learning-button" id='learn-${id}'>Learned</div>`
+}
+
+const addDifficultWords = () => {
+  const DIFFICULT_BUTTON = document.querySelectorAll('.difficult-button');
+
+  DIFFICULT_BUTTON.forEach((el) => {
+    el.addEventListener('click', () => {
+      el.classList.add('difficult-active');
+      let current_difficults = JSON.parse(localStorage.difficult);
+      if (!current_difficults.includes(el.id.slice(5))) {
+        current_difficults.push(el.id.slice(5));
+      }
+      localStorage.difficult = JSON.stringify(current_difficults);
+    });
+  })
 }
