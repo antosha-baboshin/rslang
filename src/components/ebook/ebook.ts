@@ -6,13 +6,17 @@ export const addWordsList = () => {
   const LEVEL_BUTTONS = document.querySelectorAll('.level');
   LEVEL_BUTTONS.forEach((el) => {
     el.addEventListener('click', () => {
-      let level = +el.id.slice(-1);
-      CURRENT_PAGE.innerHTML = '1';
-    
-      localStorage.level = level;
-      localStorage.page = 0;
-
-      renderWordsList(level, 0);
+      if (el.id !== 'difficult') {
+        let level = +el.id.slice(-1);
+        CURRENT_PAGE.innerHTML = '1';
+      
+        localStorage.level = level;
+        localStorage.page = 0;
+  
+        renderWordsList(level, 0);
+      } else {
+        renderDifficultWords();
+      }
     });
   })
   renderWordsList(localStorage.level, localStorage.page);
@@ -36,5 +40,8 @@ export const addPagination = () => {
     CURRENT_PAGE.innerHTML = (+localStorage.page + 1) + '';
     renderWordsList(localStorage.level, localStorage.page);
   });
+}
 
+const renderDifficultWords = () => {
+  console.log('Difficult words');
 }

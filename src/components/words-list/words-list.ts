@@ -27,6 +27,7 @@ export const renderWordsList = async (group: number, page: number): Promise<void
         <p>(<i>${obj.textExampleTranslate}</i>)</p>
       </div>
       <audio controls class='audio' id=${obj.id}></audio>
+      <div class="learning-buttons">${renderLearningsButtons()}</div>
     </div>`).join('')}
   `;
   WORDS_LIST_WRAPPER.innerHTML = WORDS_TABLE;
@@ -62,3 +63,10 @@ const getAudioUrls = async (id: string): Promise<string[] | undefined> => {
     console.log('error', response.status);
   }
 };
+
+const renderLearningsButtons = () => {
+  const LEARNING_BUTTONS_WRAPPER = document.querySelector('.learning-buttons');
+  if (!localStorage.autority) return '';
+  return `<div class="learning-button">Difficult</div>
+          <div class="learning-button">Learned</div>`
+}
