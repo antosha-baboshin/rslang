@@ -42,7 +42,6 @@ const createAudioplayers = () => {
       let current = 0;
       el.src = `${BASE + '/' + arr![0]}`;
       el.onended = () => {
-        console.log(current, el.src);
         current++;
         if (current >= arr!.length) {
           current = 0;
@@ -54,7 +53,6 @@ const createAudioplayers = () => {
       }
     });
   })
-  console.log(AUDIOPLAYERS);
 }
 
 const getAudioUrls = async (id: string): Promise<string[] | undefined> => {
@@ -66,4 +64,4 @@ const getAudioUrls = async (id: string): Promise<string[] | undefined> => {
     console.log('error', response.status);
   }
 };
-renderWordsList(1, 1);
+renderWordsList(2, 2);
