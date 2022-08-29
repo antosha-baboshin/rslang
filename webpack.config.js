@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const baseConfig = {
-    entry: path.resolve(__dirname, './src/main.ts'),
+    entry: path.resolve(__dirname, './index.ts'),
     mode: 'development',
     module: {
         rules: [
@@ -30,19 +30,17 @@ const baseConfig = {
         extensions: ['.js', '.ts'],
     },
     output: {
-        filename: 'index.js',
+          filename: 'index.js',
         path: path.resolve(__dirname, '../dist/rslang'),
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/index.html'),
+            template: path.resolve(__dirname, './index.html'),
             filename: 'index.html',
         }),
-        new webpack.ProvidePlugin({
-            Buffer: ['Buffer'],
-        }),
-        new webpack.ProvidePlugin({
-            process: 'process/browser',
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/authorization.html'),
+            filename: './src/authorization.html',
         }),
         new CleanWebpackPlugin(),
     ],
