@@ -126,7 +126,7 @@
     justify-content: center;
     flex-direction: column;
 }
-.mycourse_spanish_logo {
+.mycourse_spanish_logo, .allcourses_item_logo {
     display: flex;
     width: 32px;
     height: 32px;
@@ -208,7 +208,7 @@
     background-color: rgb(241, 239, 239);
     width: 620px;
     height: 80px;
-    margin-top: 30px;
+    margin-top: 15px;
     border-radius: 20px;
     align-items: center;
 }
@@ -295,6 +295,7 @@
 .arrdown_icon {
     margin-top: 20px;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 /* statistic boxes */
@@ -323,4 +324,51 @@
     font-size: 16px;
     line-height: 24px;
     margin-left: 20px;
+}
+
+
+/* games block */
+
+
+.games_block {
+    margin: 40px 0px 0px 65px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.games_block_title, .games_name {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 38px;
+}
+.games_sprint, .games_audiocall {
+    display: flex;
+    width: 440px;
+    height: 132px;
+    background-color: white;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 3px 3px 3px gray;
+    border: solid 1px black;
+}
+.sprint_img {
+    height: 130px;
+}
+
+
+/* statistics */
+
+
+.statistics_block {
+    margin: 40px 0px 0px 65px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.statistics_block_title {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 38px;
 }
