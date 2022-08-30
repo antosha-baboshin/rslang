@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const baseConfig = {
-    entry: path.resolve(__dirname, './src/main.ts'),
+    entry: path.resolve(__dirname, './index.ts'),
     mode: 'development',
     module: {
         rules: [
@@ -41,6 +41,10 @@ const baseConfig = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/components/ebook/ebook.html'),
             filename: 'ebook.html',
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/authorization.html'),
+            filename: './src/authorization.html',
         }),
         new webpack.ProvidePlugin({
             Buffer: ['Buffer'],
