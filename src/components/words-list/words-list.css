@@ -33,3 +33,7 @@
 .difficult-active {
   background-color: red;
 }
+
+.learned-active {
+  background-color: green;
+}

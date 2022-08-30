@@ -33,3 +33,7 @@
 .arrow {
   cursor: pointer;
 }
+
+.level-active {
+  background-color: red;
+}

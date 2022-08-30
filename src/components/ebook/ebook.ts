@@ -1,4 +1,4 @@
-import { BASE, createAudioplayers, renderLearningsButtons, renderWordsList, WORDS } from "../words-list/words-list";
+import { addLearnedWords, BASE, createAudioplayers, renderLearningsButtons, renderWordsList, WORDS } from "../words-list/words-list";
 
 const CURRENT_PAGE = document.querySelector('.current') as HTMLElement;
 
@@ -6,17 +6,16 @@ export const addWordsList = () => {
   const LEVEL_BUTTONS = document.querySelectorAll('.level');
   LEVEL_BUTTONS.forEach((el) => {
     el.addEventListener('click', () => {
+      let level = el.id.slice(-1);
+      localStorage.level = level;
+      localStorage.page = 0;
       if (el.id !== 'difficult') {
-        let level = +el.id.slice(-1);
         CURRENT_PAGE.innerHTML = '1';
-      
-        localStorage.level = level;
-        localStorage.page = 0;
-  
-        renderWordsList(level, 0);
+        renderWordsList(+level, 0);
       } else {
         renderDifficultWords();
       }
+      checkActiveLevel();
     });
   })
   renderWordsList(localStorage.level, localStorage.page);
@@ -74,4 +73,32 @@ const getWordByID = async (id: string) => {
   } else {
     console.log('error', response.status);
   }
+}
+
+export const checkActiveLevel = () => {
+  const LEVEL_BUTTONS = document.querySelectorAll('.level');
+  LEVEL_BUTTONS.forEach((el) => {
+    el.classList.remove('level-active');
+    if (el.id.slice(-1) === localStorage.level) {
+      el.classList.add('level-active');
+    }
+  })
+}
+
+export const checkActiveDifficultWords = () => {
+  const DIFFICULT_BUTTONS = document.querySelectorAll('.difficult-button'); 
+  DIFFICULT_BUTTONS.forEach((el) => {
+    if (JSON.parse(localStorage.difficult).includes(el.id.slice(5))) {
+      el.classList.add('difficult-active');
+    }
+  })
+}
+
+export const checkActiveLearnedWords = () => {
+  const LEARNED_BUTTONS = document.querySelectorAll('.learned-button'); 
+  LEARNED_BUTTONS.forEach((el) => {
+    if (JSON.parse(localStorage.learned).includes(el.id.slice(6))) {
+      el.classList.add('learned-active');
+    }
+  })
 }

@@ -1,3 +1,5 @@
+import { checkActiveDifficultWords, checkActiveLearnedWords } from "../ebook/ebook";
+
 export const BASE: string = 'https://sveta077-rslang.herokuapp.com';
 export const WORDS: string = `${BASE}/words`;
 const getWords = async (group: number, page: number) => {
@@ -34,6 +36,9 @@ export const renderWordsList = async (group: number, page: number): Promise<void
 
   createAudioplayers();
   addDifficultWords();
+  addLearnedWords();
+  checkActiveDifficultWords();
+  checkActiveLearnedWords();
 }
 
 export const createAudioplayers = () => {
@@ -69,21 +74,37 @@ export const getAudioUrls = async (id: string): Promise<string[] | undefined> =>
 export const renderLearningsButtons = (id: string) => {
   const LEARNING_BUTTONS_WRAPPER = document.querySelector('.learning-buttons');
   if (!localStorage.autority) return '';
+  else if (localStorage.level === 't') return `<div class="learning-button easy-button" id='diff-${id}'>Easy</div>
+                                              <div class="learning-button" id='learn-${id}'>Learned</div>`;
   return `<div class="learning-button difficult-button" id='diff-${id}'>Difficult</div>
-          <div class="learning-button" id='learn-${id}'>Learned</div>`
+          <div class="learning-button learned-button" id='learn-${id}'>Learned</div>`
 }
 
 const addDifficultWords = () => {
-  const DIFFICULT_BUTTON = document.querySelectorAll('.difficult-button');
+  const DIFFICULT_BUTTONS = document.querySelectorAll('.difficult-button');
 
-  DIFFICULT_BUTTON.forEach((el) => {
+  DIFFICULT_BUTTONS.forEach((el) => {
     el.addEventListener('click', () => {
-      el.classList.add('difficult-active');
       let current_difficults = JSON.parse(localStorage.difficult);
       if (!current_difficults.includes(el.id.slice(5))) {
         current_difficults.push(el.id.slice(5));
       }
       localStorage.difficult = JSON.stringify(current_difficults);
+      checkActiveDifficultWords();
+    });
+  })
+}
+
+export const addLearnedWords = () => {
+  const LEARNED_BUTTONS = document.querySelectorAll('.learned-button');
+  LEARNED_BUTTONS.forEach((el) => {
+    el.addEventListener('click', () => {
+      let current_learned = JSON.parse(localStorage.learned);
+      if (!current_learned.includes(el.id.slice(6))) {
+        current_learned.push(el.id.slice(6));
+      }
+      localStorage.learned = JSON.stringify(current_learned);
+      checkActiveLearnedWords();
     });
   })
 }
