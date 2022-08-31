@@ -39,8 +39,8 @@ const baseConfig = {
             filename: 'index.html',
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/components/ebook/ebook.html'),
-            filename: 'ebook.html',
+            template: path.resolve(__dirname, './src/ebook.html'),
+            filename: './src/ebook.html',
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/authorization.html'),
