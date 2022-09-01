@@ -3,5 +3,4 @@ export const defaultStorage = () => {
   localStorage.page = localStorage.page ? localStorage.getItem('page') : '0';
   localStorage.difficult = localStorage.difficult ? localStorage.getItem('difficult') : JSON.stringify([]);
   localStorage.learned = localStorage.learned ? localStorage.getItem('learned') : JSON.stringify([]);
-  localStorage.autority = 'true';
 }

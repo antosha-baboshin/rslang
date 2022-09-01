@@ -9,6 +9,10 @@
   gap: 20px;
 }
 
+.body-active {
+  background-color: aquamarine;
+}
+
 .level-buttons {
   display: flex;
   justify-content: space-around;
@@ -36,4 +40,44 @@
 
 .level-active {
   background-color: red;
+}
+
+.word-block {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid red;
+  padding: 10px;
+}
+
+.word-block-meanings {
+  display: flex;
+  flex-direction: column;
+}
+
+.learning-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.learning-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid blue;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.learning-button:hover {
+  background-color: blue;
+  color: white;
+}
+.difficult-active {
+  background-color: red;
+}
+
+.learned-active {
+  background-color: green;
 }

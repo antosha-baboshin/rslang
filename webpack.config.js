@@ -46,12 +46,6 @@ const baseConfig = {
             template: path.resolve(__dirname, './src/authorization.html'),
             filename: './src/authorization.html',
         }),
-        new webpack.ProvidePlugin({
-            Buffer: ['Buffer'],
-        }),
-        new webpack.ProvidePlugin({
-            process: 'process/browser',
-        }),
         new CleanWebpackPlugin(),
     ],
 };

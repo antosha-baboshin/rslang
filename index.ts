@@ -1,15 +1,8 @@
 import './src/styles.css'
 import Aut from "./src/api/aut";
-import { addPagination, addWordsList, checkActiveLevel } from "./src/components/ebook/ebook";
-import { defaultStorage } from "./src/utilities/defaultStorage";
+import { addEbook } from "./src/components/ebook/ebook";
 
 if (document.title === 'E-Book') {
-    const addEbook = () => {
-    defaultStorage();
-    checkActiveLevel();
-    addWordsList();
-    addPagination();
-  }
   addEbook();
 }
 
