@@ -1,0 +1,163 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Sofia', sans-serif;
+    color: #000;
+    font-size: 15px;
+    line-height: 1;
+    background-color: white;
+    display: flex;
+    font-weight: 400;
+    max-height: 1020px;
+}
+
+.authorization {
+    position: absolute;
+    right: 0;
+    padding: 20px;
+    background-color: white; 
+}
+
+.full {
+    position: absolute;
+    right: 0;
+    padding-top: 80px;
+    padding-right: 20px;
+}
+
+.full-icon {
+    width: 35px;
+    height: auto;
+}
+
+.title-text, .title-circles {
+    text-align: center;
+}
+
+.main-game-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.allcourses-game-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.allcourses-game-block-item {
+    display: flex;
+    background-color: rgb(241, 239, 239);
+    width: 400px;
+    height: 220px;
+    margin-top: 15px;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.circle {
+    background-color: rgb(241, 239, 239);
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 500%;
+    position: relative;
+    box-shadow: 3px 3px 3px gray;
+    border: solid 1px black;
+    display: inline-block;
+    margin: 10px;
+}
+
+.game-block-wrapper {
+    text-align: center;
+    padding-left: 12%;
+}
+
+.sprint-playbtn {
+    width: 120px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 10px;
+    color: white;
+    margin: 15px;
+    box-shadow: 3px 3px 3px gray;
+    border: solid 1px black;
+}
+
+.purple {
+    background-color: rgb(219, 176, 245);
+}
+
+.pink {
+    background-color: rgb(255, 71, 125);
+}
+
+/* TIMER */
+
+.timer-place {
+    display: grid;
+    place-items: center;
+    margin-top: 15px;
+  }
+  
+  .base-timer {
+    position: relative;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .base-timer__svg {
+    transform: scaleX(-1);
+  }
+  
+  .base-timer__circle {
+    fill: none;
+    stroke: none;
+  }
+  
+  .base-timer__path-elapsed {
+    stroke-width: 7px;
+    stroke: grey;
+  }
+  
+  .base-timer__path-remaining {
+    stroke-width: 7px;
+    stroke-linecap: round;
+    transform: rotate(90deg);
+    transform-origin: center;
+    transition: 1s linear all;
+    fill-rule: nonzero;
+    stroke: currentColor;
+  }
+  
+  .base-timer__path-remaining.purples {
+    color: rgb(219, 176, 245);
+  }
+  
+  .base-timer__path-remaining.greys {
+    color: rgb(241, 239, 239);
+  }
+  
+  .base-timer__path-remaining.pinks {
+    color: rgb(255, 71, 125);
+  }
+  
+  .base-timer__label {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+  }
+  
