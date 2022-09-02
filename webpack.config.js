@@ -14,8 +14,6 @@ const baseConfig = {
     entry: {
         main: `${PATHS.src}/index.ts`,
         aut: `${PATHS.src}/authorization/authorization.ts`,
-        spmain: `${PATHS.src}/sprint/spmain.ts`,
-        spplay: `${PATHS.src}/sprint/spplay.ts`
     },
     mode: 'development',
     module: {
@@ -65,24 +63,6 @@ const baseConfig = {
             template: path.resolve(__dirname, './src/authorization/authorization.html'),
             filename: './authorization/authorization.html',
             chunks: ["aut"]
-        }),
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/sprint/sprint-play.html'),
-            filename: './sprint/sprint-play.html',
-            chunks: ["spplay"]
-        }),
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/sprint/sprintmain.html'),
-            filename: './sprint/sprintmain.html',
-            chunks: ["spmain"]
-        }),
-        new CopyPlugin({
-            patterns: [
-                {
-                    from: path.resolve(__dirname, './src/assets/'),
-                    to: path.resolve(__dirname, '../dist/rslang/assets/')
-                }
-            ]
         }),
 
         new CleanWebpackPlugin(),
