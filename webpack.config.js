@@ -3,6 +3,7 @@ const webpack = require("webpack")
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 const baseConfig = {
     entry: path.resolve(__dirname, './index.ts'),
@@ -18,11 +19,16 @@ const baseConfig = {
                 use: ['ts-loader'],
             },      
             {
-                test: /\.(png|jpg|gif|svg)$/,
-                loader: 'file-loader',
-                options: {
-                  name: '[name].[ext]',
-                },
+                test: /\.(png|jpg|gif|svg|jpeg|ico)$/i,
+                type: 'asset/resource',
+                use: ['file-loader'],
+                // options: {
+                //   name: '[name].[ext]',
+                // },
+              },
+              {
+                test: /\.(woff(2)?|eot|ttf|otf)$/i,
+                type: 'asset/resource',
               },
         ],
     },
@@ -43,6 +49,15 @@ const baseConfig = {
             filename: './src/authorization.html',
         }),
         new CleanWebpackPlugin(),
+        new CopyPlugin({
+            patterns: [
+              {
+              from: path.resolve(__dirname, './src/assets/'),
+              to: path.resolve(__dirname, '../dist/rslang/src/assets/'),
+              },
+            //   '_redirects',
+            ],
+            })
     ],
 };
 
@@ -52,3 +67,4 @@ module.exports = ({ mode }) => {
 
     return merge(baseConfig, envConfig);
 };
+
