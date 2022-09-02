@@ -1,105 +1,10 @@
-/* sidebar */
 
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 132px;
-    height: 853.12px;
-    background-color: black;
-    margin: 34px 0 23px 32px;
-    border-radius: 25px;
-}
-.sidebar-nav {
-    margin-top: 100px;
-}
-
-/* .logo-name {
-    font-size: 24px;
-    font-weight: 500;
-}
-.sidebar-logo {
-    margin-bottom: 57px;
-} */
-.nav-title {
-    font-size: 30px;
-    font-weight: 700;
-    margin-bottom: 44px;
-}
-.nav-list {
-    font-size: 15.71px;
-}
-.nav-list li {
-    margin-bottom: 60px;
-}
-.nav-list img {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 10px;
-    width: 26px;
-    height: auto;
-    object-fit: none;
-}
-/* .nav-list a:hover {
-    color: orangered;
-}
-.nav-list a {
-    transition: color 0.2s ease-in;
-} */
-.sidebar-help {
-    margin-top: auto;
-}
-.help {
-    font-size: 15.7px;
-}
-.help-icon {
-    display: inline-block;
-    vertical-align: middle;
-    margin-bottom: 50px;
-}
-
-
-
+/* mycourse */
 .main {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 }
-
-/* header */
-
-.header_container {
-    display: flex;
-    width: 620px;
-    height: 160px;
-    background-color: rgb(241, 239, 239);
-    margin-top: 34px;
-    border-radius: 20px;
-    flex-direction: row;
-}
-.header_img {
-    margin-left: 90px;
-    margin-top: -31px;
-    width: 175px;
-    height: 191px;
-}
-.header_text {
-    padding: 40px 0px 50px 32px;
-}
-.header_title {
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 57px;
-}
-.header_title_text {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-}
-
-
-/* mycourse */
-
 .mycourse_container {
     display: flex;
     flex-direction: row;
@@ -251,51 +156,6 @@
     align-items: center;
     margin-left: 50px;
     gap: 10px;
-}
-
-
-/* navigation */
-
-.navigation_block {
-    display: flex;
-    margin: 34px 0px 0px 65px;
-}
-.search_bar {
-    width: 300px;
-    height: 44px;
-}
-.search_label {
-    display: flex;
-    height: 100%;
-}
-.search_icon {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 10px;
-    width: 26px;
-    height: auto;
-    object-fit: none;
-}
-.search_input {
-    flex-grow: 1;
-    padding: 0 17px;
-    font-size: 17px;
-    font-weight: 500;
-    font-family: 'Circular Std';
-    background-color: rgb(241, 239, 239);
-    border-radius: 10px;
-}
-.search_input::placeholder {
-    color: rgba(0, 0, 0, 0.2)
-}
-.notification_icon, .profile_icon {
-    margin-left: 30px;
-    margin-bottom: 10px;
-}
-.arrdown_icon {
-    margin-top: 20px;
-    margin-left: 10px;
-    cursor: pointer;
 }
 
 /* statistic boxes */
