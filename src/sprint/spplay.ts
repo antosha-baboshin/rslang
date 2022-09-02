@@ -3,7 +3,7 @@ import './css/sprint-play.css'
 
 const url =new URL(window.location.href)
 
-//const page = 5
+const MAX_PAGE = 100
 let level = 0
 const serv=process.env.SERVER
 
@@ -40,33 +40,35 @@ const idrus= document.getElementById("sprusword") as HTMLInputElement;
 const idpoint= document.getElementById("sppoint") as HTMLInputElement;
 const idweight= document.getElementById("spweight") as HTMLInputElement;
 
-async function getWords(lvl:number){
+async function getWords(lvl:number,pag:number){
  
-    const  res= await fetch(`${serv}/words?group=${lvl}`, {
+    const  res= await fetch(`${serv}/words?group=${lvl}&page=${pag}`, {
        method: 'GET',
     })
      
     if (res.ok) {
+        
         const data = await res.json() as word[];
         words= words.concat(data.slice(0));
-        game() 
+        if (words.length<=20) game() ;
+        
     } else   console.log('ERROR ',res);
 
   }
  
-//for (let i=page; i>=0; i-- ){
-
-   getWords(level)  
-//}
+for (let i=0; i<=MAX_PAGE; i++ ){
+   getWords(level,i)    
+}
 
 startTimer()
+
 
 let w1=0;
 let w2=0;
 
 async function game()
 {
-
+setSeries(Math.trunc(otv))
 weight= 10*(Math.pow(2,Math.trunc(otv/4)));
 idpoint.innerText=`Points ${points}`
 idweight.innerText=`Weight ${weight}`
@@ -107,7 +109,7 @@ document.addEventListener("stoptimer", ()=>{
     sessionStorage.setItem('spnotknown', JSON.stringify(wrongW));
     window.location.href =`./sprint-final.html`
     })
-
+/*
 let elem = document.documentElement;
 function openFullscreen() {
   if (elem.requestFullscreen) {
@@ -119,4 +121,16 @@ function closeFullscreen() {
     if (document.exitFullscreen) {
       document.exitFullscreen();
     }
+}
+*/
+
+function setSeries(nom:number){
+  (document.getElementById("circle1") as HTMLInputElement).style.backgroundColor="rgb(241, 239, 239)";
+  (document.getElementById("circle2") as HTMLInputElement).style.backgroundColor="rgb(241, 239, 239)";
+  (document.getElementById("circle3") as HTMLInputElement).style.backgroundColor="rgb(241, 239, 239)";
+
+  if (nom>0)  (document.getElementById("circle1") as HTMLInputElement).style.backgroundColor= "rgb(219, 176, 245)" ;
+  if (nom>1)  (document.getElementById("circle2") as HTMLInputElement).style.backgroundColor= "rgb(219, 176, 245)" ;
+  if (nom>2)  (document.getElementById("circle3") as HTMLInputElement).style.backgroundColor= "rgb(219, 176, 245)" ;   
+
 }

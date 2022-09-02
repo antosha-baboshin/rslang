@@ -36,17 +36,17 @@ body {
 
 .allcourses-sprint-block-item {
     display: flex;
-    background-color: rgb(241, 239, 239);
     width: 560px;
     height: 180px;
     margin-top: 15px;
     border-radius: 20px;
     align-items: center;
+    box-shadow: 3px 3px 3px gray;
+    border: solid 1px black;
 }
 
 .allcourses-sprint-item {
     display: flex;
-    background-color: rgb(241, 239, 239);
     border-radius: 10px;
     align-items: center;
     justify-content: center;
