@@ -1,5 +1,0 @@
-import Aut from "./src/api/aut";
-
-const aut = new Aut('https://sveta077-rslang.herokuapp.com');
-aut.addListener();
-aut.viewUser();

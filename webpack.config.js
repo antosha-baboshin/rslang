@@ -1,49 +1,79 @@
 const path = require('path');
+const CopyPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack")
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const PATHS = {
+     src: path.resolve(process.cwd(), "src"),
+    dist: path.resolve(process.cwd(), "dist")
+  };
+
 
 const baseConfig = {
-    entry: path.resolve(__dirname, './index.ts'),
+    entry: {
+        main: `${PATHS.src}/index.ts`,
+        aut: `${PATHS.src}/authorization/authorization.ts`,
+    },
     mode: 'development',
     module: {
         rules: [
             {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: ['babel-loader'],
+            },
+            {
                 test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
+                 use: [
+                    {
+                        loader:'style-loader'
+                    }, 
+                    {
+                        loader: 'css-loader',
+
+                    }
+
+                 ]
+
             },
             {
                 test: /\.ts$/i,
                 use: ['ts-loader'],
             },      
-            {
-                test: /\.(png|jpg|gif|svg)$/,
-                loader: 'file-loader',
-                options: {
-                  name: '[name].[ext]',
-                },
-              },
+
         ],
     },
     resolve: {
         extensions: ['.js', '.ts'],
     },
     output: {
-          filename: 'index.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, '../dist/rslang'),
+        assetModuleFilename: 'assets/[name][ext]'
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html'),
             filename: 'index.html',
+           chunks: ["main"]
+            
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/authorization.html'),
-            filename: './src/authorization.html',
+            template: path.resolve(__dirname, './src/authorization/authorization.html'),
+            filename: './authorization/authorization.html',
+            chunks: ["aut"]
         }),
+
         new CleanWebpackPlugin(),
     ],
+    optimization: {
+        splitChunks: {
+          chunks: "all",
+          minSize: 1,
+          minChunks: 2
+        }
+      }
 };
 
 module.exports = ({ mode }) => {
