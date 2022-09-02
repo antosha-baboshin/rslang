@@ -11,3 +11,9 @@ if (document.title === 'RSLang') {
   aut.addListener();
   aut.viewUser();
 }
+
+const userwords = () => {
+  console.log('1');
+};
+
+userwords();
