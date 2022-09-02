@@ -1,7 +1,15 @@
 import startTimer from './timer'
 import './css/sprint-play.css'
-import { match } from 'assert'
-console.log('sprint PLAY')
+
+const url =new URL(window.location.href)
+
+//const page = 5
+let level = 0
+const serv=process.env.SERVER
+
+if (url.searchParams.get('level')) level=Number(url.searchParams.get('level'))
+console.log('sprint PLAY level ',level)
+
 let points=0
 
 type word ={
@@ -27,18 +35,14 @@ let weight=10;
 
 let words:word[]=[];
 
-const page = 5
-const level = 1
-const serv='https://sveta077-rslang.herokuapp.com'
-
 const ideng= document.getElementById("spengword") as HTMLInputElement;
 const idrus= document.getElementById("sprusword") as HTMLInputElement;
 const idpoint= document.getElementById("sppoint") as HTMLInputElement;
 const idweight= document.getElementById("spweight") as HTMLInputElement;
 
-async function getWords(lvl:number,pag:number){
+async function getWords(lvl:number){
  
-    const  res= await fetch(`${serv}/words?group=${lvl}&page=${pag}`, {
+    const  res= await fetch(`${serv}/words?group=${lvl}`, {
        method: 'GET',
     })
      
@@ -50,10 +54,10 @@ async function getWords(lvl:number,pag:number){
 
   }
  
-for (let i=page; i>=0; i-- ){
+//for (let i=page; i>=0; i-- ){
 
-   getWords(level,i)  
-}
+   getWords(level)  
+//}
 
 startTimer()
 
@@ -97,7 +101,12 @@ wrong.addEventListener("click", ()=>{
     game()
     }, false);
 
-document.addEventListener("stoptimer", ()=>console.log('END ', wrongW, rightW))
+document.addEventListener("stoptimer", ()=>{
+    console.log('END ');
+    sessionStorage.setItem('spknown', JSON.stringify(rightW));
+    sessionStorage.setItem('spnotknown', JSON.stringify(wrongW));
+    window.location.href =`./sprint-final.html`
+    })
 
 let elem = document.documentElement;
 function openFullscreen() {

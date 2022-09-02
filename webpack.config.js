@@ -4,6 +4,7 @@ const webpack = require("webpack")
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 const PATHS = {
      src: path.resolve(process.cwd(), "src"),
     dist: path.resolve(process.cwd(), "dist")
@@ -14,7 +15,8 @@ const baseConfig = {
     entry: {
         main: `${PATHS.src}/index.ts`,
         spmain: `${PATHS.src}/sprint/spmain.ts`,
-        spplay: `${PATHS.src}/sprint/spplay.ts`
+        spplay: `${PATHS.src}/sprint/spplay.ts`,
+        spfinal: `${PATHS.src}/sprint/spfinal.ts`
     },
     mode: 'development',
     module: {
@@ -71,6 +73,11 @@ const baseConfig = {
             filename: './sprint/sprint-main.html',
             chunks: ["spmain"]
         }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/sprint/sprint-final.html'),
+            filename: './sprint/sprint-final.html',
+            chunks: ["spfinal"]
+        }),
         new CopyPlugin({
             patterns: [
                 {
@@ -81,6 +88,7 @@ const baseConfig = {
         }),
 
         new CleanWebpackPlugin(),
+        new Dotenv()
     ],
     optimization: {
         splitChunks: {

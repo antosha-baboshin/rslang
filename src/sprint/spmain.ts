@@ -1,8 +1,8 @@
 import './css/sprint-main.css'
-import Aut from "../api/aut";
-console.log('sprint MAIN')
 
-const aut = new Aut();
-aut.loadUser();
+document.getElementById('splevelbutton')!
+  .addEventListener("click", (e)=>{
+        const level =(e.target as  HTMLElement).getAttribute('level')
+        window.location.href =`./sprint-play.html?level=${level}`
 
-console.log('USER: ', aut.name)
+    } )  
