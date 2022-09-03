@@ -14,7 +14,9 @@ const PATHS = {
 const baseConfig = {
     entry: {
         main: `${PATHS.src}/index.ts`,
+        ebook: `${PATHS.src}/components/ebook/ebook.ts`,
         spmain: `${PATHS.src}/sprint/spmain.ts`,
+        auth: `${PATHS.src}/authorization/authorization.ts`,
         spplay: `${PATHS.src}/sprint/spplay.ts`,
         spfinal: `${PATHS.src}/sprint/spfinal.ts`,
         chmain: `${PATHS.src}/challenge/chellmain.ts`,
@@ -95,6 +97,16 @@ const baseConfig = {
             template: path.resolve(__dirname, './src/challenge/challenge-final.html'),
             filename: './challenge/challenge-final.html',
             chunks: ["chfinal"]
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/authorization/authorization.html'),
+            filename: './authorization/authorization.html',
+            chunks: ["chfinal"]
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/ebook.html'),
+            filename: './ebook.html',
+            chunks: ["ebook"]
         }),
         new CopyPlugin({
             patterns: [

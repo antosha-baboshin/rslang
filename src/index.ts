@@ -1,6 +1,12 @@
-import Aut from "./api/aut";
+import "./css/reset.css"
+import "./css/base.css"
+import "./css/main.css"
+import "./css/sidebar.css"
+//import "./assets/fonts/circular/stylesheet.css"
+//import "./assets/fonts/sofia-pro/stylesheet.css"
 
 import Aut from "./api/aut";
+
 const aut = new Aut();
 aut.newToken()
 aut.savUser()
