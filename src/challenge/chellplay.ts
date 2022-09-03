@@ -92,6 +92,7 @@ wrong.addEventListener("click", (e)=>{
     {circle.style.backgroundColor="rgb(0, 239, 0)";   
     playaudio("../assets/sound/right.mp3") 
     if (!wrng) rightW.push(wrd)
+    wrng=true;
   }
     else 
     {
