@@ -6,9 +6,11 @@ import { renderWordsList } from "../renders/renderWordsList";
 export const addWordsList = (): void => {
   const LEVEL_BUTTONS = document.querySelectorAll('.level') as NodeListOf<HTMLElement>;
   LEVEL_BUTTONS.forEach((el: HTMLElement): void => {
-    el.addEventListener('click', (): void => {
+    el.addEventListener('click', (): void|number => {
       const LEVEL: string = el.id.slice(-1);
 
+      if (LEVEL === 't' && !localStorage.autority) return 0;
+    
       localStorage.level = LEVEL;
       localStorage.page = 0;
 

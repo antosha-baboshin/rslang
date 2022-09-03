@@ -32,6 +32,10 @@
 .denied-level {
   background-color: rgb(248, 97, 97);
 }
+
+.denied-level:hover {
+  color: white;
+}
 .pagination {
   display: flex;
   justify-content: center;
