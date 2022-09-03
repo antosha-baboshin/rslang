@@ -23,5 +23,10 @@ export const addWordsList = (): void => {
       checkActiveLevel();
     });
   })
-  renderWordsList(localStorage.level, localStorage.page);
+
+  if (localStorage.level === 't') {
+    renderDifficultWords();
+  } else {
+    renderWordsList(localStorage.level, localStorage.page);
+  }
 }

@@ -2,6 +2,7 @@
 import { BASE, getWordByID } from "../../../api/words";
 import { Word } from "../../../utilities/interfaces/interfaces";
 import { addAudioplayers } from "../adds/addAudioplayers";
+import { addEasyWords, addLearnedWords } from "../adds/addWords";
 import { renderLearningsButtons } from "./renderLearningButtons";
 
 export const renderDifficultWords = () => {
@@ -34,6 +35,8 @@ export const renderDifficultWords = () => {
     </div>`
     }).then( () => {
       addAudioplayers();
+      addEasyWords();
+      addLearnedWords();
     });
   })
 }

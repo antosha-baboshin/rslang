@@ -1,7 +1,7 @@
 import { BASE, getWords } from "../../../api/words";
 import { Word } from "../../../utilities/interfaces/interfaces";
 import { addAudioplayers } from "../adds/addAudioplayers";
-import { addDifficultWords, addLearnedWords } from "../adds/addWords";
+import { addWords } from "../adds/addWords";
 import { checkPage } from "../checks/checkPage";
 import { checkActiveDifficultWords, checkActiveLearnedWords } from "../checks/checkWords";
 import { renderLearningsButtons } from "./renderLearningButtons";
@@ -37,8 +37,7 @@ export const renderWordsList = async (group: number, page: number): Promise<void
   `;
   WORDS_LIST_WRAPPER.innerHTML = WORDS_TABLE;
   addAudioplayers();
-  addDifficultWords();
-  addLearnedWords();
+  addWords();
   checkActiveDifficultWords();
   checkActiveLearnedWords();
   checkPage();
