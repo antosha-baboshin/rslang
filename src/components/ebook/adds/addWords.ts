@@ -48,7 +48,6 @@ export const addLearnedWords = (): void => {
       }
       localStorage.learned = JSON.stringify(CURRENT_LEARNED);
       localStorage.difficult = JSON.stringify(CURRENT_DIFFICULTS);
-
       renderWordsList(localStorage.level, localStorage.page);
     });
   })

@@ -18,9 +18,7 @@ export const addWordsList = (): void => {
         CURRENT_PAGE.innerHTML = '1';
         renderWordsList(+LEVEL, 0);
       } else {
-        if (localStorage.autority) {
-          renderDifficultWords(); 
-        }
+        renderDifficultWords(); 
       }
       checkActiveLevel();
     });
