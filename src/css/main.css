@@ -4,10 +4,13 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    height: 1020px;
+    width: auto;
 }
-.mycourse_container {
+/* .mycourse_container {
     display: flex;
     flex-direction: row;
+    margin-left: 50px;
 }
 
 .mycourse_current {
@@ -73,14 +76,15 @@
     display: flex;
     margin: 50px 0px 0px 15px;
     gap:20px;
-}
+} */
 
 
 /* allcourses */
 
 
-.allcourses_container {
+/* .allcourses_container {
     margin-top: 40px;
+    margin-left: 50px;
 }
 
 .allcourses_container_title {
@@ -156,11 +160,11 @@
     align-items: center;
     margin-left: 50px;
     gap: 10px;
-}
+} */
 
 /* statistic boxes */
 
-.statistics_block_boxes {
+/* .statistics_block_boxes {
     margin: 40px 0px 0px 65px;
     display: flex;
     gap: 25px;
@@ -185,7 +189,27 @@
     line-height: 24px;
     margin-left: 20px;
 }
+ */
 
+
+/* about block */
+
+.about_block {
+    margin: 40px 0px 0px 50px;
+}
+.about_title {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 38px;
+}
+.about_text {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+    font-style: italic;
+    color: gray;
+    width: 440px;
+}
 
 /* games block */
 
@@ -216,7 +240,14 @@
 .sprint_img {
     height: 130px;
 }
-
+.game_description {
+    display: block;
+    margin-top: 15px;
+    font-size: 12px;
+    font-style: italic;
+    color: gray;
+    width: 440px;
+}
 
 /* statistics */
 
@@ -225,10 +256,85 @@
     margin: 40px 0px 0px 65px;
     display: flex;
     flex-direction: column;
+    padding-bottom: 15px;
     gap: 12px;
 }
 .statistics_block_title {
     font-size: 24px;
     font-weight: bold;
     line-height: 38px;
+}
+.statistics_graph {
+    margin-top: 15px;
+}
+
+/* ebook */
+
+.ebook_block {
+    margin: 40px 0px 0px 50px;
+}
+
+.ebook_block_title {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 38px;
+}
+.ebook {
+    display: flex;
+    width: 440px;
+    height: 132px;
+    background-color: white;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 3px 3px 3px gray;
+    border: solid 1px black;
+    margin-top: 15px;
+}
+
+/* team block */
+
+
+.team_block {
+    margin: 40px 0px 0px 65px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.team_block_title {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 38px;
+}
+.team_member_card {
+    display: flex;
+    width: 135px;
+    height: 282px;
+    background-color: white;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 3px 3px 3px gray;
+    border: solid 1px black;
+    margin-top: 15px;
+    flex-direction: column;
+}
+.team_arr_btns {
+    display: flex;
+    margin: 10px 0px 0px 160px;
+    gap: 35px;
+}    
+.team_container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px
+}
+/* .team_member_ava {
+    margin-bottom: 50px;
+} */
+.team_member_name {
+    font-size: 10px;
+}
+.github_logo {
+    cursor: pointer;
 }

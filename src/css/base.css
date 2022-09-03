@@ -10,7 +10,9 @@ body {
     display: flex;
     column-gap: 37px;
     font-weight: 400;
-    max-height: 1020px;
+    height: 1200px;
+    position: relative;
+    width: 1440px;
 }
 .none {
     display: none !important;

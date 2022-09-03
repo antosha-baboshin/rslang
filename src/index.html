@@ -9,37 +9,36 @@
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/sidebar.css">
+    <link rel="stylesheet" href="./css/authorization.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./assets/fonts/circular/stylesheet.css">
     <link rel="stylesheet" href="./assets/fonts/sofia-pro/stylesheet.css">
 </head>
 <body>
-    <div class="sidebar">
+    <main class="main">
+        <div class="sidebar">
         <nav class="sidebar-nav nav">
             <ul class="nav-list">
                 <li><a href="#"><img src="./src/assets/icons/home.svg" alt="home"></a></li>
-                <li><a href="#"><img src="./src/assets/icons/study.svg" alt="study"></a></li>
                 <li><a href="./src/authorization.html"><img src="./src/assets/icons/me.svg" alt="me"></a></li>
-                <li><a href="#"><img src="./src/assets/icons/mail.svg" alt="mail"></a></li>
-                <li><a href="#"><img src="./src/assets/icons/settings.svg" alt="settings"></a></li>
+                <li><a href="#"><img src="./src/assets/icons/study.svg" alt="study"></a></li>
+                <li><a href="#"><img class="statistic_icon" src="./src/assets/icons/stats.png" alt="statistics"></a></li>
+                <li><a href="#"><img src="./src/assets/icons/sprint.svg" alt="Sprint"></a></li>
+                <li><a href="#"><img src="./src/assets/icons/audiocall.svg"></a></li>
             </ul>
         </nav>
-        <div class="sidebar-help">
-            <a class="help" href="#">
-                <img class="help-icon" src="./src/assets/icons/leave.svg" alt="leave">
-            </a> 
         </div>
-    </div>
-    <main class="main">
         <header class="header">
             <div class="header_container">
                 <div class="header_text">
-                    <h1 class="header_title">Hello, friend</h1>
-                    <span class="header_title_text">It’s good to see you again.</span>  
+                    <h1 class="header_title">Hello, friend!</h1>
+                    <span class="header_title_text">It's good to see you again.</span>  
                 </div>
                 <img class="header_img" src="./src/assets/icons/header-img.svg">
             </div>
         </header>
-        <div class="mycourse_container">
+        <!-- <div class="mycourse_container">
             <div class="mycourse_current">
                 <div class="mycourse_spanish">
                     <img class="mycourse_spanish_logo" src="./src/assets/icons/UK.svg">
@@ -54,17 +53,16 @@
                 <button class="mycourse_continue_btn">Continue</button>
             </div>
             <div class="mycourse_arr_btns">
-                <a href="#"><img src="./src/assets/icons/arr-left.svg"></a>
-                <a href="#"><img src="./src/assets/icons/arr-right.svg"></a>
+                <a href="#"><img src="./assets/icons/arr-left.svg"></a>
+                <a href="#"><img src="./assets/icons/arr-right.svg"></a>
             </div>
-        </div>
-        <section class="allcourses_container">
+        </div> -->
+        <!-- <section class="allcourses_container">
             <h2 class="allcourses_container_title">Courses</h2>
             <ul class="allcourses_categories">
                 <a href="#"><li class="allcourses_categories_item current">All Couses</li></a>
                 <a href="#"><li class="allcourses_categories_item">The Newest</li></a>
                 <a href="#"><li class="allcourses_categories_item">Completed</li></a>
-                <!-- <a href="#"><li class="allcourses_categories_item">Most Popular</li></a> -->
             </ul>
             <div class="allcourses_block">
                 <div class="allcourses_block_item">
@@ -72,7 +70,7 @@
                         <img class="allcourses_item_logo" src="./src/assets/icons/UK.svg">
                     </div>
                     <div class="allcourses_item_name">
-                        <h2 class="allcourses_item_title">English level 1</h2>
+                        <h2 class="allcourses_item_title">A1 Elementary</h2>
                         <span class="allcourses_item_author">by English Daddy</span>
                     </div>
                     <div class="allcourses_item_time">
@@ -91,7 +89,7 @@
                         <img class="allcourses_item_logo" src="./src/assets/icons/UK.svg">
                     </div>
                     <div class="allcourses_item_name">
-                        <h2 class="allcourses_item_title">English level 2</h2>
+                        <h2 class="allcourses_item_title">A2 Pre-Intermadiate</h2>
                         <span class="allcourses_item_author">by English Man</span>
                     </div>
                     <div class="allcourses_item_time">
@@ -110,7 +108,7 @@
                         <img class="allcourses_item_logo" src="./src/assets/icons/UK.svg">
                     </div>
                     <div class="allcourses_item_name">
-                        <h2 class="allcourses_item_title">English level 3</h2>
+                        <h2 class="allcourses_item_title">B1 Intermadiate</h2>
                         <span class="allcourses_item_author">by English Man</span>
                     </div>
                     <div class="allcourses_item_time">
@@ -129,7 +127,7 @@
                         <img class="allcourses_item_logo" src="./src/assets/icons/UK.svg">
                     </div>
                     <div class="allcourses_item_name">
-                        <h2 class="allcourses_item_title">English level 4</h2>
+                        <h2 class="allcourses_item_title">B2 Upper-Intermadiate</h2>
                         <span class="allcourses_item_author">by English Man</span>
                     </div>
                     <div class="allcourses_item_time">
@@ -148,7 +146,7 @@
                         <img class="allcourses_item_logo" src="./src/assets/icons/UK.svg">
                     </div>
                     <div class="allcourses_item_name">
-                        <h2 class="allcourses_item_title">English level 5</h2>
+                        <h2 class="allcourses_item_title">C1 Advanced</h2>
                         <span class="allcourses_item_author">by English Man</span>
                     </div>
                     <div class="allcourses_item_time">
@@ -182,21 +180,30 @@
                     
                 </div>
             </div>
-        </section>
-        <div class="navigation_block">
-            <div class="navigation_searchbar">
-                <form class="search_bar">
-                    <label class="search_label">
-                        <img class="search_icon" src="./src/assets/icons/search.svg" alt="Search">
-                        <input class="search_input" type="search" placeholder="Search Course">
-                    </label>
-                </form>
-            </div>
-            <img class="notification_icon" src="./src/assets/icons/Notification.svg" alt="Notification">
-            <img class="profile_icon" src="./src/assets/img/MaskGroup.jpeg" alt="Notification">
-            <a href="#"><img class="arrdown_icon" src="./src/assets/icons/arr-down.svg" alt="Notification"></a>
+        </section> -->
+        <div class="about_block">
+            <h2 class="about_title">RSLang</h2>
+            <span class="about_text">Now learning English is easy and fun! Play mini-games and learn to memorize words. The dictionary contains all the words that were previously encountered in games. Repeat them every day to consolidate the result.</span>
         </div>
-        <div class="statistics_block_boxes">
+        <div class="ebook_block">
+            <h2 class="ebook_block_title">Book</h2>
+                <a href="#">
+                <div class="ebook">
+                    <img class="sprint_img" src="./src/assets/img/book.jpg" alt="Sprint Game">
+                </div></a>
+        </div>
+        <div class="statistics_block">
+            <h2 class="statistics_block_title">Statistics</h2>
+            <a href="#"><img class="statistics_graph" src="./src/assets/img/statistics.jpeg"></a>
+        </div>
+        <div class="auth_block">
+            <div class="auth_name">
+                <span>Андрей Пупкин</span>
+            </div>
+            <img class="profile_icon" src="./src/assets/img/MaskGroup.jpeg" alt="Notification">
+            <a href="#"><img class="logout_icon" src="./src/assets/icons/log-out.svg" alt="Notification"></a>
+        </div>
+        <!-- <div class="statistics_block_boxes">
             <div class="statistics_box_complete">
                 <h3 class="statistics_box_total">11</h3>
                 <span class="statistics_box_title">Courses<br>completed</span>
@@ -205,7 +212,7 @@
                 <h3 class="statistics_box_total">4</h3>
                 <span class="statistics_box_title">Courses<br>in progress</span>
             </div>
-        </div>
+        </div> -->
         <div class="games_block">
             <h2 class="games_block_title">Games</h2>
             <a href="#">
@@ -213,18 +220,67 @@
                     <img class="sprint_img" src="./src/assets/img/sprint.jpg" alt="Sprint Game">
                     <span class="games_name">Sprint</span>
                 </div>
+                <span class="game_description">Trains the skill of quick translation from English into Russian. You need to choose whether the translation matches the suggested word.</span>
             </a>
             <a href="#">
                 <div class="games_audiocall">
                     <img class="sprint_img" src="./src/assets/img/audiocall.jpg" alt="Audiocall Game">
                     <span class="games_name">Audiocall</span>
                 </div>
+                <span class="game_description">Choose from the suggested answers the correct translation of the word you hear</span>
             </a>
         </div>
-        <div class="statistics_block">
-            <h2 class="statistics_block_title">Statistics</h2>
+        <div class="team_block">
+            <h2 class="team_block_title">Our Team</h2>
+            <div class="team_container">
+                <div class="team_member_card">
+                    <img class="team_member_ava" src="./src/assets/img/ava-anton.jpg" alt="Anton">
+                    <span class="team_member_name">Anton</span>
+                    <a href="https://www.linkedin.com/in/antosha-baboshin-23b4211b9/" target="_blank"><img src="./src/assets/icons/linkedin.png"></a>
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                </div>
+                <div class="team_member_card">
+                    <img class="team_member_ava" src="./src/assets/img/ava-sveta.jpg" alt="Svetlana">
+                    <span class="team_member_name">Svetlana</span>
+                    <a href="https://www.linkedin.com//" target="_blank"><img src="./src/assets/icons/linkedin.png"></a>
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                </div>
+                <div class="team_member_card">
+                    <img class="team_member_ava" src="./src/assets/img/ava-pavel.jpg" alt="Pavel">
+                    <span class="team_member_name">Pavel</span>
+                    <a href="https://www.linkedin.com/in/%D0%BF%D0%B0%D0%B2%D0%B5%D0%BB-%D1%81%D0%BE%D1%82%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2-344395164/" target="_blank"><img src="./src/assets/icons/linkedin.png"></a>
+                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                </div>
+            </div>
+            <!-- <div class="team_arr_btns">
+                <a href="#"><img src="./assets/icons/arr-left.svg"></a>
+                <a href="#"><img src="./assets/icons/arr-right.svg"></a>
+            </div> -->
         </div>
+
     </main>
+    <footer class="footer">
+      <div class="footer_block">
+         <div class="footer_course">
+            <a href="https://rs.school"><img class="course_logo" src="./src/assets/icons/rs_school.svg"></a>
+             <span class="course_year">2022 г.</span>
+         </div>
+         <div class="footer_team">
+            <div class="footer_team_member">
+                <a href="https://rs.school"><img class="github_logo" src="./src/assets/icons/github_icon.svg"></a>
+                <span class="team_member_name">Антон</span>
+            </div>
+            <div class="footer_team_member">
+                <a href="https://rs.school"><img class="github_logo" src="./src/assets/icons/github_icon.svg"></a>
+                <span class="team_member_name">Светлана</span>
+            </div>
+            <div class="footer_team_member">
+                <a href="https://rs.school"><img class="github_logo" src="./src/assets/icons/github_icon.svg"></a>
+                <span class="team_member_name">Павел</span>
+            </div>
+         </div>
+      </div>
+    </footer>
     <!-- <div><a href="./src/authorization.html">Authorization</div> -->
     <!-- <div><a href="./sprint/sprintmain.html">game SPRINT</div> -->
 </body>
