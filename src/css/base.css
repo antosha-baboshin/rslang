@@ -11,6 +11,7 @@ body {
     column-gap: 37px;
     font-weight: 400;
     max-height: 1020px;
+    width: 100%;
 }
 .none {
     display: none !important;
