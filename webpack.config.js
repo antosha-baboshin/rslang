@@ -14,7 +14,7 @@ const PATHS = {
 const baseConfig = {
     entry: {
         main: `${PATHS.src}/index.ts`,
-        ebook: `${PATHS.src}/components/ebook/ebook.ts`,
+        ebook: `${PATHS.src}/ebook.ts`,
         spmain: `${PATHS.src}/sprint/spmain.ts`,
         auth: `${PATHS.src}/authorization/authorization.ts`,
         spplay: `${PATHS.src}/sprint/spplay.ts`,
@@ -101,7 +101,7 @@ const baseConfig = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/authorization/authorization.html'),
             filename: './authorization/authorization.html',
-            chunks: ["chfinal"]
+            chunks: ["auth"]
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/ebook.html'),

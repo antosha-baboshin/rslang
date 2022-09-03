@@ -8,8 +8,13 @@ import "./css/sidebar.css"
 import Aut from "./api/aut";
 
 const aut = new Aut();
+aut.loadUser()
 aut.newToken()
 aut.savUser()
+
+
+const profile_icon= document.getElementById("profile_icon") as HTMLInputElement;
+if (profile_icon && aut.avatara!='') profile_icon.src=aut.avatara
 
 console.log('SERVER: ',process.env.SERVER)
 
