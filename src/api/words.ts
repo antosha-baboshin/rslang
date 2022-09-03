@@ -1,6 +1,6 @@
 import { Word } from "../utilities/interfaces/interfaces";
 
-export const BASE = 'https://sveta077-rslang.herokuapp.com';
+export const BASE = process.env.SERVER;
 export const WORDS = `${BASE}/words`;
 
 export const getWords = async (group: number, page: number): Promise<Word|undefined> => {
