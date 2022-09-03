@@ -13,6 +13,4 @@ aut.loadUser()
 
 if (document.title === 'E-Book') {
   addEbook();
-  console.log('1');
 }
-

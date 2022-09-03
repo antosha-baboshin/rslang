@@ -1,7 +1,7 @@
 import { BASE, getWords } from "../../../api/words";
 import { Word } from "../../../utilities/interfaces/interfaces";
 import { addAudioplayers } from "../adds/addAudioplayers";
-import { addDifficultWords, addLearnedWords } from "../adds/addWords";
+import { addWords } from "../adds/addWords";
 import { checkPage } from "../checks/checkPage";
 import { checkActiveDifficultWords, checkActiveLearnedWords } from "../checks/checkWords";
 import { renderLearningsButtons } from "./renderLearningButtons";
@@ -13,15 +13,23 @@ export const renderWordsList = async (group: number, page: number): Promise<void
   const WORDS_TABLE = `
     ${(data as unknown as Word[]).map((obj: Word): string => `
     <div class="word-block">
-      <img src=${BASE + '/' + obj.image} alt=''>
-      <p>${obj.word}</p>
-      <p>${obj.transcription}</p>
-      <p>${obj.wordTranslate}</p>
-      <div class="word-block-meanings">
-        <p>${obj.textMeaning}</p>
-        <p>(<i>${obj.textMeaningTranslate}</i>)</p>
-        <p>${obj.textExample}</p>
-        <p>(<i>${obj.textExampleTranslate}</i>)</p>
+      <img src=${BASE + '/' + obj.image} alt='' class='word-image'>
+      <div class='word-text-block'>
+        <div class='word-transcription-block'>
+          <p class='word'>${obj.word}</p>
+          <p class='word'>${obj.transcription}</p>
+          <p class='word'>${obj.wordTranslate}</p>
+        </div>
+        <div class="word-block-meanings">
+          <div class='word-meaning'> 
+            <p>${obj.textMeaning}</p>
+            <p>(<i>${obj.textMeaningTranslate}</i>)</p>
+          </div>
+          <div class='word-meaning'>
+            <p>${obj.textExample}</p>
+            <p>(<i>${obj.textExampleTranslate}</i>)</p>
+          </div>
+        </div>
       </div>
       <audio controls class='audio' id='audio-${obj.id}'></audio>
       <div class="learning-buttons">${renderLearningsButtons(obj.id)}</div>
@@ -29,8 +37,7 @@ export const renderWordsList = async (group: number, page: number): Promise<void
   `;
   WORDS_LIST_WRAPPER.innerHTML = WORDS_TABLE;
   addAudioplayers();
-  addDifficultWords();
-  addLearnedWords();
+  addWords();
   checkActiveDifficultWords();
   checkActiveLearnedWords();
   checkPage();

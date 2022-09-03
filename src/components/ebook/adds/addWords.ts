@@ -1,6 +1,7 @@
+import { renderDifficultWords } from "../renders/renderDifficultWords";
 import { renderWordsList } from "../renders/renderWordsList";
 
-export const addDifficultWords = (): void => {
+const addDifficultWords = (): void => {
   const DIFFICULT_BUTTONS = document.querySelectorAll('.difficult-button') as NodeListOf<HTMLElement>;
 
   DIFFICULT_BUTTONS.forEach((el: HTMLElement): void => {
@@ -48,8 +49,44 @@ export const addLearnedWords = (): void => {
       }
       localStorage.learned = JSON.stringify(CURRENT_LEARNED);
       localStorage.difficult = JSON.stringify(CURRENT_DIFFICULTS);
-
-      renderWordsList(localStorage.level, localStorage.page);
+      
+      if (localStorage.level === 't') {
+        renderDifficultWords();
+      } else {
+        renderWordsList(localStorage.level, localStorage.page);
+      }
     });
   })
+}
+
+export const addEasyWords = (): void => {
+  const EASY_BUTTONS = document.querySelectorAll('.easy-button') as NodeListOf<HTMLElement>;
+  EASY_BUTTONS.forEach((el: HTMLElement): void => {
+    el.addEventListener('click', () => {
+      const CURRENT_DIFFICULTS = JSON.parse(localStorage.difficult);
+      const ID = el.id.slice(5);
+      const DIFFICULT_WORD_INDEX = CURRENT_DIFFICULTS.indexOf(ID);
+      console.log(ID);
+      if (CURRENT_DIFFICULTS.includes(ID)) {
+        CURRENT_DIFFICULTS.splice(DIFFICULT_WORD_INDEX, 1);
+      } 
+      localStorage.difficult = JSON.stringify(CURRENT_DIFFICULTS);
+      renderDifficultWords();
+    });
+  })
+};
+
+export const addWords = () => {
+  addDifficultWords();
+  addLearnedWords();
+  addEasyWords();
+}
+
+export const getUsers = async () => {
+  const response: Response = await fetch(`${process.env.SERVER}/users/`);
+  if (response.ok) {
+    return await response.json();
+  } else {
+    console.log('error', response.status);
+  }
 }
