@@ -14,3 +14,21 @@ export interface Word {
   textMeaningTranslate: string,
   textExampleTranslate: string
 }
+
+export interface UsersWord {
+  difficulty: string,
+  optional: {
+    target: number
+  }
+}
+
+export interface CreateUsersWord {
+  userId: string,
+  wordId: string,
+  word: {
+    difficulty: string,
+    optional: {
+      target: number,
+    },
+  }
+}

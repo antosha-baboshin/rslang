@@ -15,9 +15,9 @@ export const renderDifficultWords = () => {
       <img src=${BASE + '/' + obj!.image} alt='' class='word-image'>
       <div class='word-text-block'>
         <div class='word-transcription-block'>
-          <p>${obj!.word}</p>
-          <p>${obj!.transcription}</p>
-          <p>${obj!.wordTranslate}</p>
+          <p class='word'>${obj!.word}</p>
+          <p class='word'>${obj!.transcription}</p>
+          <p class='word'>${obj!.wordTranslate}</p>
         </div>
         <div class="word-block-meanings">
           <div class='word-meaning'> 

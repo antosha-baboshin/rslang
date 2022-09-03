@@ -1,5 +1,10 @@
+import Aut from "../../../api/aut";
+import { CreateUsersWord } from "../../../utilities/interfaces/interfaces";
 import { renderDifficultWords } from "../renders/renderDifficultWords";
 import { renderWordsList } from "../renders/renderWordsList";
+
+const aut = new Aut();
+aut.loadUser()
 
 const addDifficultWords = (): void => {
   const DIFFICULT_BUTTONS = document.querySelectorAll('.difficult-button') as NodeListOf<HTMLElement>;
@@ -14,6 +19,18 @@ const addDifficultWords = (): void => {
 
       if (!CURRENT_DIFFICULTS.includes(ID)) {
         CURRENT_DIFFICULTS.push(ID);
+
+        createUserWord({
+          userId: aut.id, 
+          wordId: ID, 
+          word: {
+            difficulty: 'difficult',
+            optional: {
+              target: 5
+            }
+          }
+        });
+
         if (CURRENT_LEARNED.includes(ID)) {
           CURRENT_LEARNED.splice(LEARNED_WORD_INDEX, 1);
         }
@@ -41,6 +58,18 @@ export const addLearnedWords = (): void => {
 
       if (!CURRENT_LEARNED.includes(ID)) {
         CURRENT_LEARNED.push(ID);
+
+        createUserWord({
+          userId: aut.id, 
+          wordId: ID, 
+          word: {
+            difficulty: 'learned',
+            optional: {
+              target: 0
+            }
+          }
+        });
+
         if (CURRENT_DIFFICULTS.includes(ID)) {
           CURRENT_DIFFICULTS.splice(DIFFICULT_WORD_INDEX, 1);
         }
@@ -49,7 +78,6 @@ export const addLearnedWords = (): void => {
       }
       localStorage.learned = JSON.stringify(CURRENT_LEARNED);
       localStorage.difficult = JSON.stringify(CURRENT_DIFFICULTS);
-      
       if (localStorage.level === 't') {
         renderDifficultWords();
       } else {
@@ -82,11 +110,17 @@ export const addWords = () => {
   addEasyWords();
 }
 
-export const getUsers = async () => {
-  const response: Response = await fetch(`${process.env.SERVER}/users/`);
-  if (response.ok) {
-    return await response.json();
-  } else {
-    console.log('error', response.status);
-  }
-}
+export const createUserWord = async ({ userId, wordId, word }: CreateUsersWord ) => {
+  const rawResponse = await fetch(`${process.env.SERVER}/users/${userId}/words/${wordId}`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${aut.token}`,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(word)
+  });
+  const content = await rawResponse.json();
+
+  console.log(content);
+};

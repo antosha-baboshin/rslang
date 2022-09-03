@@ -11,6 +11,4 @@ import './css/authorization.css'
 const aut= new Aut()
 aut.loadUser()
 
-if (document.title === 'E-Book') {
-  addEbook();
-}
+addEbook();
