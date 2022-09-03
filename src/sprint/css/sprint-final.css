@@ -1,0 +1,86 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Sofia', sans-serif;
+    color: #000;
+    font-size: 15px;
+    line-height: 1;
+    background-color: white;
+    display: flex;
+    font-weight: 400;
+    max-height: 1020px;
+}
+
+.authorization {
+    position: absolute;
+    right: 0;
+    padding: 20px;    
+}
+
+.main-final-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.allcourses-final-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.allcourses-final-block-item {
+    display: flex;
+    background-color: rgb(241, 239, 239);
+    width: 450px;
+    height: 470px;
+    margin-top: 15px;
+    align-items: center;
+}
+
+.final-block-wrapper {
+    width: 450px;
+    height: 470px;
+    text-align: left;
+    padding-left: 10%;
+    overflow-y: scroll;
+}
+
+.sprint-btn-play {
+    display: flex;
+    width: 160px;
+    height: 40px;
+    background-color: rgb(241, 239, 239);
+    border-radius: 10px;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 3px 3px 3px gray;
+    border: solid 1px black;
+}
+
+.voice {
+    width: 30px;
+    height: auto;
+}
+
+.words {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.text-results {
+    text-align: center;
+}
+
+.wrapper-btn-play {
+    padding-left: 30%;
+    margin-top: 15px;
+}
