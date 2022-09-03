@@ -1,0 +1,26 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Sofia', sans-serif;
+    color: #000;
+    font-size: 15px;
+    line-height: 1;
+    background-color: white;
+    display: flex;
+    font-weight: 400;
+    max-height: 1020px;
+}
+
+.main-auth-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.auth-input {
+    background-color: #000;
+}
