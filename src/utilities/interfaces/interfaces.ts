@@ -29,6 +29,16 @@ export interface CreateUsersWord {
     difficulty: string,
     optional: {
       target: number,
+      progress: number
     },
   }
+}
+
+export interface GetUserWord {
+  difficulty: string,
+  id: string,
+  optional: {
+    target: number,
+  }
+  wordId: string
 }
