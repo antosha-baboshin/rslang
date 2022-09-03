@@ -89,7 +89,7 @@ wrong.addEventListener("click", (e)=>{
 
   if (eng) {
     if (eng==wrd.word) 
-    {circle.style.backgroundColor="rgb(0, 239, 0)";   
+    {circle.style.backgroundColor="rgb(219, 176, 245)";   
     playaudio("../assets/sound/right.mp3") 
     if (!wrng) rightW.push(wrd)
     wrng=true;
@@ -98,7 +98,7 @@ wrong.addEventListener("click", (e)=>{
     {
      if (!wrng) wrongW.push(wrd) 
      wrng=true;
-     circle.style.backgroundColor="rgb(239, 0, 0)";  
+     circle.style.backgroundColor="rgb(255, 71, 125)";  
     playaudio("../assets/sound/error.mp3") 
     }
   }
