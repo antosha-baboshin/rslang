@@ -37,9 +37,6 @@ const baseConfig = {
                 test: /\.(png|jpg|gif|svg|jpeg|ico)$/i,
                 type: 'asset/resource',
                 use: ['file-loader'],
-                // options: {
-                //   name: '[name].[ext]',
-                // },
               },
               {
                 test: /\.(woff(2)?|eot|ttf|otf)$/i,
@@ -59,13 +56,14 @@ const baseConfig = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html'),
             filename: 'index.html',
-           chunks: ["main"]
-            
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/components/ebook/ebook.html'),
+            filename: './src/ebook.html',
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/authorization/authorization.html'),
-            filename: './authorization/authorization.html',
-            chunks: ["aut"]
+            filename: './src/authorization.html',
         }),
 
         new CleanWebpackPlugin(),
@@ -75,9 +73,8 @@ const baseConfig = {
               from: path.resolve(__dirname, './src/assets/'),
               to: path.resolve(__dirname, '../dist/rslang/src/assets/'),
               },
-            //   '_redirects',
             ],
-            })
+        })
     ],
     optimization: {
         splitChunks: {
