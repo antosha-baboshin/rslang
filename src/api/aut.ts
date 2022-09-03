@@ -7,15 +7,16 @@ class Aut{
     refreshToken:string;
     avatara:string;
     
-    constructor(srv:string) {
+    constructor(srv:string='') {
        this.name='';
        this.email='';
        this.id='';
        this.token='';
        this.refreshToken='';
        this.avatara = '';
-       this.loadUser();
        this.srv=srv;
+       this.loadUser();
+       if (srv!='') this.srv=srv;
      }
 
     loadImg(file:File, elem?: HTMLElement) {
@@ -161,7 +162,7 @@ class Aut{
    if (localStorage.getItem('autority')!==null) {
      const load=JSON.parse(localStorage.getItem('autority') as string);
      Object.assign(this,load);
-     if (this.refreshToken !='') this.newToken();
+     //if (this.refreshToken !='') this.newToken();
     }
   }
 
