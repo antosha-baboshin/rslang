@@ -1,4 +1,4 @@
-class Aut{
+class Aut {
     name:string;
     email:string;
     id:string;
@@ -58,7 +58,6 @@ class Aut{
     viewAva(elem: HTMLElement){
       const img = document.createElement("img") as HTMLImageElement;
       img.classList.add("obj");
-      //img.width=100
       elem.innerHTML='';
       elem.appendChild(img);
       img.setAttribute('src', this.avatara);
@@ -115,7 +114,6 @@ class Aut{
       if (data.img_buf) this.avatara=data.img_buf;
       this.savUser();
       this.viewUser()
-      
   })
   .catch(res => console.log('ERROR get user',res))
 }
@@ -140,6 +138,7 @@ class Aut{
       const usrsignout = document.getElementById("usrsignout") as HTMLInputElement;
       usrsignout.addEventListener("click", ()=>{
         this.SignOut()
+        this.viewUser();
        });
  
 
@@ -169,6 +168,7 @@ class Aut{
   }
 
   newToken(){
+    if (this.id!=''){
     fetch(process.env.SERVER+'/users/'+this.id+'/tokens', {
       method: 'GET',
       //withCredentials: true ,
@@ -182,11 +182,13 @@ class Aut{
          const data=  await res.json()
          this.token=data.token;
          this.refreshToken=data.refreshToken;
-         console.log('New token generated ')
+         console.log('New token generated. ID: ',this.id,'  token:',this.token)
          this.savUser();
      })
      .catch(()=> {console.log('ERROR renew token'); this.SignOut()}) 
+    }
   }
+  
   SignOut()
   {  localStorage.removeItem('autority')
      this.id='';
@@ -195,7 +197,6 @@ class Aut{
      this.email='';
      this.name='';
      this.avatara='';
-     this.viewUser();
      console.log('Sign Out')
   }
 }

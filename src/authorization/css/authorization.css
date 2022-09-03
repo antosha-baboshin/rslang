@@ -20,7 +20,3 @@ body {
     margin-right: -50%;
     transform: translate(-50%, -50%);
 }
-
-.auth-input {
-    background-color: #000;
-}
