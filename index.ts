@@ -1,9 +1,17 @@
-import './src/styles.css'
+import './src/components/ebook/ebook.css'
 import Aut from "./src/api/aut";
 import { addEbook } from "./src/components/ebook/ebook";
+import './src/css/base.css'
+import './src/css/main.css'
+import './src/css/reset.css'
+import './src/css/sidebar.css'
+import './src/css/header.css'
+import './src/css/authorization.css'
+
 
 if (document.title === 'E-Book') {
   addEbook();
+  console.log('1');
 }
 
 if (document.title === 'RSLang') {
@@ -11,9 +19,3 @@ if (document.title === 'RSLang') {
   aut.addListener();
   aut.viewUser();
 }
-
-const userwords = () => {
-  console.log('1');
-};
-
-userwords();

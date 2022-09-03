@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack")
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -10,19 +11,36 @@ const baseConfig = {
     module: {
         rules: [
             {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: ['babel-loader'],
+            },
+            {
                 test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
+                 use: [
+                    {
+                        loader:'style-loader'
+                    }, 
+                    {
+                        loader: 'css-loader',
+
+                    }
+
+                 ]
+
             },
             {
                 test: /\.ts$/i,
                 use: ['ts-loader'],
             },      
             {
-                test: /\.(png|jpg|gif|svg)$/,
-                loader: 'file-loader',
-                options: {
-                  name: '[name].[ext]',
-                },
+                test: /\.(png|jpg|gif|svg|jpeg|ico)$/i,
+                type: 'asset/resource',
+                use: ['file-loader'],
+              },
+              {
+                test: /\.(woff(2)?|eot|ttf|otf)$/i,
+                type: 'asset/resource',
               },
         ],
     },
@@ -30,8 +48,9 @@ const baseConfig = {
         extensions: ['.js', '.ts'],
     },
     output: {
-        filename: 'index.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, '../dist/rslang'),
+        assetModuleFilename: 'assets/[name][ext]'
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -39,15 +58,31 @@ const baseConfig = {
             filename: 'index.html',
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/ebook.html'),
+            template: path.resolve(__dirname, './src/components/ebook/ebook.html'),
             filename: './src/ebook.html',
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/authorization.html'),
+            template: path.resolve(__dirname, './src/authorization/authorization.html'),
             filename: './src/authorization.html',
         }),
+
         new CleanWebpackPlugin(),
+        new CopyPlugin({
+            patterns: [
+              {
+              from: path.resolve(__dirname, './src/assets/'),
+              to: path.resolve(__dirname, '../dist/rslang/src/assets/'),
+              },
+            ],
+        })
     ],
+    optimization: {
+        splitChunks: {
+          chunks: "all",
+          minSize: 1,
+          minChunks: 2
+        }
+      }
 };
 
 module.exports = ({ mode }) => {
@@ -56,3 +91,4 @@ module.exports = ({ mode }) => {
 
     return merge(baseConfig, envConfig);
 };
+
