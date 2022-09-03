@@ -37,8 +37,10 @@ export const renderWordsList = async (group: number, page: number): Promise<void
   `;
   WORDS_LIST_WRAPPER.innerHTML = WORDS_TABLE;
   addAudioplayers();
-  addWords();
-  checkActiveDifficultWords();
-  checkActiveLearnedWords();
-  checkPage();
+  if (localStorage.autority) {
+    addWords();
+    checkActiveDifficultWords();
+    checkActiveLearnedWords();
+    checkPage();
+  }
 }
