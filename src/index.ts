@@ -1,3 +1,10 @@
+import Aut from "./api/aut";
+
+import Aut from "./api/aut";
+const aut = new Aut();
+aut.newToken()
+aut.savUser()
+
 console.log('SERVER: ',process.env.SERVER)
 
 document.getElementById('stsprint')!
