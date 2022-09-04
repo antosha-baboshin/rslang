@@ -39,6 +39,7 @@ export interface GetUserWord {
   id: string,
   optional: {
     target: number,
+    progress: number
   }
   wordId: string
 }

@@ -39,3 +39,15 @@ export const getUserWords = async (userId: string) => {
   const content = await rawResponse.json();
   return content;
 }
+
+export const getUserWordByID = async(userId: string, wordId: string) => {
+  const rawResponse = await fetch(`${process.env.SERVER}/users/${userId}/words/${wordId}`, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${aut.token}`,
+      'Accept': 'application/json',
+    },
+  });
+  const content = await rawResponse.json();
+  return content;
+}

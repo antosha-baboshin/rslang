@@ -5,6 +5,7 @@ import { BASE, getWordByID } from "../../../api/words";
 import { GetUserWord, Word } from "../../../utilities/interfaces/interfaces";
 import { addAudioplayers } from "../adds/addAudioplayers";
 import { addWords } from "../adds/addWords";
+import { checkProgress } from "../checks/checkProgress";
 import { renderLearningsButtons } from "./renderLearningButtons";
 
 const aut = new Aut();
@@ -46,6 +47,7 @@ export const renderDifficultWords = () => {
       }).then( () => {
         addAudioplayers();
         addWords();
+        checkProgress();
       })
     })
   })
