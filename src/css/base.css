@@ -12,7 +12,9 @@ body {
     font-weight: 400;
     height: 1200px;
     position: relative;
-    width: 1440px;
+}
+.body {
+    width: 100%;
 }
 .none {
     display: none !important;

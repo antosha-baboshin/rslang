@@ -3,9 +3,12 @@
 .main {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    justify-self: center;
     flex-wrap: wrap;
     height: 1020px;
-    width: auto;
+    width: 1200px;
 }
 
 /* about block */
@@ -145,6 +148,11 @@
     flex-direction: row;
     gap: 15px
 }
+.team-text {
+    text-align: center;
+    line-height: 20px;
+    padding: 17px;
+} 
 /* .team_member_ava {
     margin-bottom: 50px;
 } */

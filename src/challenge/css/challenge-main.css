@@ -1,0 +1,104 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Sofia', sans-serif;
+    color: #000;
+    font-size: 15px;
+    line-height: 1;
+    background-color: white;
+    display: flex;
+    font-weight: 400;
+    max-height: 1020px;
+}
+
+.authorization {
+    position: absolute;
+    right: 0;
+    padding: 20px;    
+}
+
+.main-sprint-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.allcourses-sprint-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.allcourses-challenge-block-item {
+    display: flex;
+    width: 560px;
+    height: 220px;
+    margin-top: 15px;
+    border-radius: 20px;
+    align-items: center;
+    box-shadow: 3px 3px 3px gray;
+    border: solid 1px black;
+}
+
+.allcourses-sprint-item {
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.allcourses-challenge-item-logo {
+    display: flex;
+    width: 180px;
+    height: auto;
+    padding-left: 20px;
+}
+
+.allcourses-challenge-item-title {
+    font-size: 50px;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.allcourses-challenge-item-author {
+    font-size: 24px;
+    line-height: 5px;
+    padding-left: 20px;
+}
+
+.allcourses-sprint-item-name {
+    margin-left: 20px;
+}
+
+.allcourses-sprint-viewbtn {
+    display: flex;
+    width: 120px;
+    height: 40px;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.sprint-btn-play {
+    display: flex;
+    width: 160px;
+    height: 40px;
+    background-color: rgb(241, 239, 239);
+    border-radius: 10px;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 3px 3px 3px gray;
+    border: solid 1px black;
+}

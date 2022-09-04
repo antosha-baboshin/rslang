@@ -1,22 +1,20 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 class Aut{
     name:string;
     email:string;
     id:string;
     token:string;
-    srv:string;
     refreshToken:string;
     avatara:string;
     
-    constructor(srv:string='') {
+    constructor() {
        this.name='';
        this.email='';
        this.id='';
        this.token='';
        this.refreshToken='';
        this.avatara = '';
-       this.srv=srv;
        this.loadUser();
-       if (srv!='') this.srv=srv;
      }
 
     loadImg(file:File, elem?: HTMLElement) {
@@ -36,7 +34,7 @@ class Aut{
     async addUser(email:string, password:string, name:string) {
        const usr= (this.avatara!='' ) ?{name:name, email:email, password:password,img_buf:this.avatara }
                                     :{name:name, email:email, password:password};
-       fetch(this.srv+'/users', {
+       fetch(process.env.SERVER+'/users', {
        method: 'POST',
        headers: {
          'Accept': 'application/json',
@@ -76,7 +74,7 @@ class Aut{
     }
 
     async SignIn(email:string, password:string){
-      fetch(this.srv+'/signin', {
+      fetch(process.env.SERVER+'/signin', {
      method: 'POST',
      headers: {
        'Accept': 'application/json',
@@ -102,7 +100,7 @@ class Aut{
   }
 
   async getUser(){
-    fetch(this.srv+'/users/'+this.id, {
+    fetch(process.env.SERVER+'/users/'+this.id, {
    method: 'GET',
    //credentials: 'include',
    headers: {
@@ -172,7 +170,7 @@ class Aut{
   }
 
   newToken(){
-    fetch(this.srv+'/users/'+this.id+'/tokens', {
+    fetch(process.env.SERVER+'/users/'+this.id+'/tokens', {
       method: 'GET',
       //withCredentials: true ,
       headers: {
