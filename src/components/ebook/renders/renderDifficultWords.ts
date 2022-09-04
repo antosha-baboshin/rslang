@@ -4,7 +4,7 @@ import { getUserWords } from "../../../api/usersWords";
 import { BASE, getWordByID } from "../../../api/words";
 import { GetUserWord, Word } from "../../../utilities/interfaces/interfaces";
 import { addAudioplayers } from "../adds/addAudioplayers";
-import { addEasyWords, addLearnedWords } from "../adds/addWords";
+import { addWords } from "../adds/addWords";
 import { renderLearningsButtons } from "./renderLearningButtons";
 
 const aut = new Aut();
@@ -17,6 +17,7 @@ export const renderDifficultWords = () => {
     const ARR = data.map((el: GetUserWord) => {
       if (el.difficulty === 'difficult') return el.wordId;
     }).filter((el: string) => el !== undefined);
+    console.log(ARR);
     ARR.forEach((id: string) => {
       getWordByID(id).then((obj: Word | undefined): void => {
         WORDS_LIST_WRAPPER.innerHTML += `
@@ -44,11 +45,7 @@ export const renderDifficultWords = () => {
       </div>`
       }).then( () => {
         addAudioplayers();
-        const ARR2: string[] = data.map((el: GetUserWord) => {
-          return el.wordId;
-        });
-        addLearnedWords(ARR2);
-        addEasyWords(ARR2);
+        addWords();
       })
     })
   })

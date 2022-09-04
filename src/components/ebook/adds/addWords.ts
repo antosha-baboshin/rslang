@@ -87,7 +87,6 @@ const addDifficultWords = (array: string[]): void => {
 export const addEasyWords = (array: string[]): void => {
   const EASY_BUTTONS = document.querySelectorAll('.easy-button') as NodeListOf<HTMLElement>;
   EASY_BUTTONS.forEach((el: HTMLElement): void => {
-
     el.addEventListener('click', () => {
       const ID = el.id.slice(5);
       if (array.includes(ID)) {
@@ -102,19 +101,7 @@ export const addEasyWords = (array: string[]): void => {
             }
           } 
         })
-      } else {
-        createUserWord({ 
-          userId: aut.id, 
-          wordId: ID, 
-          word: {
-            difficulty: 'easy',
-            optional: {
-              target: 3,
-              progress: 0
-            }
-          } 
-        })
-      }
+      } 
       renderDifficultWords();
     });
   })
