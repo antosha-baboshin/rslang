@@ -60,17 +60,31 @@ export const plusWordProgress = (word: Word) => {
     
     if (ARR.includes(word.id)) {
       const CURRENT_WORD = data.find((obj: GetUserWord) => obj.wordId === word.id);
-      updateUserWord({ 
-        userId: aut.id, 
-        wordId: word.id, 
-        word: {
-          difficulty: CURRENT_WORD.difficulty,
-          optional: {
-            target: CURRENT_WORD.optional.target,
-            progress: CURRENT_WORD.optional.progress + 100 / CURRENT_WORD.optional.target,
-          }
-        } 
-      })
+      if ((CURRENT_WORD.optional.progress + 100 / CURRENT_WORD.optional.target) < 100) {
+        updateUserWord({ 
+          userId: aut.id, 
+          wordId: word.id, 
+          word: {
+            difficulty: CURRENT_WORD.difficulty,
+            optional: {
+              target: CURRENT_WORD.optional.target,
+              progress: CURRENT_WORD.optional.progress + 100 / CURRENT_WORD.optional.target,
+            }
+          } 
+        })
+      } else {
+        updateUserWord({ 
+          userId: aut.id, 
+          wordId: word.id, 
+          word: {
+            difficulty: 'learned',
+            optional: {
+              target: CURRENT_WORD.optional.target,
+              progress: 100,
+            }
+          } 
+        })
+      }
     } else {
       createUserWord({
         userId: aut.id, 
