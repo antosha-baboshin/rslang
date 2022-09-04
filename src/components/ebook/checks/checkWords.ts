@@ -1,11 +1,12 @@
-import Aut from "../../api/aut";
-import { getUserWords } from "../../api/usersWords";
+import Aut from "../../../api/aut";
+import { getUserWords } from "../../../api/usersWords";
 import { GetUserWord } from "../../../utilities/interfaces/interfaces";
 
 const aut= new Aut()
 aut.loadUser()
 
 export const checkActiveDifficultWords = (): void => {
+
   const DIFFICULT_BUTTONS = document.querySelectorAll('.difficult-button') as NodeListOf<HTMLElement>; 
   getUserWords(aut.id).then((data) => {
     const ARR = data.map((el: GetUserWord) => {

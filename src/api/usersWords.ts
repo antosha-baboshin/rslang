@@ -1,4 +1,4 @@
-import { CreateUsersWord, GetUserWord, Word } from "../../utilities/interfaces/interfaces";
+import { CreateUsersWord, GetUserWord, Word } from "../utilities/interfaces/interfaces";
 import Aut from "./aut";
 
 const aut = new Aut();

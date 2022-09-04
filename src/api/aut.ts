@@ -1,4 +1,5 @@
-class Aut{
+const MAIN_URL=`../index.html`
+class Aut {
     name:string;
     email:string;
     id:string;
@@ -17,20 +18,21 @@ class Aut{
      }
 
     loadImg(file:File, elem?: HTMLElement) {
-      if (!file.type.startsWith('image/')){ console.log('This is not image!'); return } 
+      if (!file.type.startsWith('image/')){ alert("This is not image!"); return } 
       const reader = new FileReader();
       reader.onload =((e)=> {
-        console.log('Image added');
         if (e.target) {
           this.avatara =  e.target.result as string;
           this.savUser();
-          if (elem) this.viewAva(elem);
+          const imgAva = document.getElementById('usrimage') as HTMLInputElement
+          imgAva.src=this.avatara
+          //if (elem) this.viewAva(elem);
         }
       });
       reader.readAsDataURL(file);
     }
 
-    async addUser(email:string, password:string, name:string) {
+    async addUser(email:string, password:string, name:string,url?:string) {
        const usr= (this.avatara!='' ) ?{name:name, email:email, password:password,img_buf:this.avatara }
                                     :{name:name, email:email, password:password};
        fetch(process.env.SERVER+'/users', {
@@ -47,10 +49,9 @@ class Aut{
           this.id=data.id;
           this.email=email;
           this.name=name;
-          console.log('User added ', data.id)
-          this.SignIn(email,password)
-          } else console.log('Users ERROR') 
-          
+          console.log('User added', data.id)
+          this.SignIn(email, password,url)
+          } else alert("Users ERROR") 
       })
       .catch(() => console.log('ERROR adding user'))
     }
@@ -58,21 +59,22 @@ class Aut{
     viewAva(elem: HTMLElement){
       const img = document.createElement("img") as HTMLImageElement;
       img.classList.add("obj");
-      //img.width=100
       elem.innerHTML='';
       elem.appendChild(img);
       img.setAttribute('src', this.avatara);
     }
 
-    viewUser(){
+    viewUser(defimg?:string){
       document.getElementById("usrname")!.querySelector('input')!.value=this.name ; 
       document.getElementById("usremail")!.querySelector('input')!.value=this.email  ;   
       document.getElementById("usrpassword")!.querySelector('input')!.value=''  ;   
-      const imgAva = document.getElementById('usrimage') as HTMLElement
-      this.viewAva(imgAva) 
+      const imgAva = document.getElementById('usrimage') as HTMLInputElement
+      if (this.avatara!='')  {imgAva.src=this.avatara}
+       else  {if (defimg) {imgAva.src=defimg} else imgAva.src=''}
+        //this.viewAva(imgAva) 
     }
 
-    async SignIn(email:string, password:string){
+    async SignIn(email:string, password:string,url?:string){
       fetch(process.env.SERVER+'/signin', {
      method: 'POST',
      headers: {
@@ -92,10 +94,9 @@ class Aut{
         console.log('User autorization is successful')
         this.savUser();
         this.getUser();
-
-        
+        if (url && url!='') window.location.href=url; 
     })
-    .catch(() => console.log('ERROR authorization'))
+    .catch(() => alert("ERROR authorization"))
   }
 
   async getUser(){
@@ -112,10 +113,9 @@ class Aut{
   .then(async  res => {
       const data=  await res.json()
       this.name=data.name;
-      if (data.img_buf) this.avatara=data.img_buf;
+      if (data.img_buf!='') this.avatara=data.img_buf;
       this.savUser();
       this.viewUser()
-      
   })
   .catch(res => console.log('ERROR get user',res))
 }
@@ -128,6 +128,7 @@ class Aut{
      const usremail = document.getElementById("usremail")!.querySelector('input')!.value  ;   
      const usrpass = document.getElementById("usrpassword")!.querySelector('input')!.value  ;   
      this.addUser(usremail,usrpass,usrname)
+
      });
     
      const usrsignin = document.getElementById("usrsignin") as HTMLInputElement;
@@ -140,6 +141,7 @@ class Aut{
       const usrsignout = document.getElementById("usrsignout") as HTMLInputElement;
       usrsignout.addEventListener("click", ()=>{
         this.SignOut()
+        this.viewUser('../assets/img/dravava.jpg');
        });
  
 
@@ -169,6 +171,7 @@ class Aut{
   }
 
   newToken(){
+    if (this.id!=''){
     fetch(process.env.SERVER+'/users/'+this.id+'/tokens', {
       method: 'GET',
       //withCredentials: true ,
@@ -182,11 +185,13 @@ class Aut{
          const data=  await res.json()
          this.token=data.token;
          this.refreshToken=data.refreshToken;
-         console.log('New token generated ')
+         console.log('New token generated. ID: ',this.id,'  token:',this.token)
          this.savUser();
      })
      .catch(()=> {console.log('ERROR renew token'); this.SignOut()}) 
+    }
   }
+  
   SignOut()
   {  localStorage.removeItem('autority')
      this.id='';
@@ -195,7 +200,6 @@ class Aut{
      this.email='';
      this.name='';
      this.avatara='';
-     this.viewUser();
      console.log('Sign Out')
   }
 }

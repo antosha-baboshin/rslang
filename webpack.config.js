@@ -22,6 +22,7 @@ const baseConfig = {
         chmain: `${PATHS.src}/challenge/chellmain.ts`,
         chplay: `${PATHS.src}/challenge/chellplay.ts`,
         chfinal: `${PATHS.src}/challenge/chellfinal.ts`,
+        stat: `${PATHS.src}/statistic/statistic.ts`,
     },
     mode: 'development',
     module: {
@@ -107,6 +108,11 @@ const baseConfig = {
             template: path.resolve(__dirname, './src/ebook.html'),
             filename: './ebook.html',
             chunks: ["ebook"]
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/statistic/statistic.html'),
+            filename: './statistic/statistic.html',
+            chunks: ["stat"]
         }),
         new CopyPlugin({
             patterns: [

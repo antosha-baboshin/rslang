@@ -1,5 +1,5 @@
 import './components/ebook/ebook.css'
-import Aut from "./components/api/aut";
+import Aut from "./api/aut";
 import { addEbook } from "./components/ebook/ebook";
 import './css/base.css'
 import './css/main.css'

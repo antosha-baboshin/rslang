@@ -1,9 +1,12 @@
 import './css/challenge-final.css'
+
 const serv=process.env.SERVER
 
 console.log('FINAL')
 const know=document.getElementById('spknow') as  HTMLInputElement ;
 const notknow=document.getElementById('spnotknow') as  HTMLInputElement ;
+
+
 
 type word ={
     group:  Number, 
@@ -64,4 +67,4 @@ function playaudio(src:string){
         const audio = new Audio(serv+'/'+src);
         audio.play()
        }
-    
+

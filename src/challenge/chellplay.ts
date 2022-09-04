@@ -1,4 +1,6 @@
 import './css/challenge-play.css'
+import {statistic} from "../api/stat";
+
 const url =new URL(window.location.href)
 const MAX_PAGE = 100
 let level = 0
@@ -122,7 +124,7 @@ wrong.addEventListener("click", (e)=>{
        if (answer==MAX_ANSWER){
             sessionStorage.setItem('spknown', JSON.stringify(rightW));
             sessionStorage.setItem('spnotknown', JSON.stringify(wrongW));
-            window.location.href =`./challenge-final.html`
+            statistic(rightW.length, wrongW.length, `./challenge-final.html`)
       
       }
        game()
