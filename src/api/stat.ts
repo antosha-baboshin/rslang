@@ -32,7 +32,8 @@ type stat = {
        dataStat= await data.optional as stat;
    } else   console.log('none statistic ');
    
-   const dat = new Date().getDate();
+   const data = new Date();
+   const dat = data.getFullYear()+data.getMonth()*10000+data.getDate()*1000000
    if (dataStat.data!=dat) { dataStat.right=0; dataStat.wrong=0}
    dataStat.right += right;
    dataStat.wrong += wrong; 

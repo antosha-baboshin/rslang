@@ -1,3 +1,4 @@
+import './css/statistic.css'
 import Aut from "../api/aut";
 
 const serv=process.env.SERVER
@@ -28,10 +29,10 @@ function loadStat (){
 }
 
 function addstat (right:number,wrong:number){
-    idstat.innerHTML +=`<div>Сегодня верных ответов: ${right}</div> 
-    <div>Сегодня ошибок: ${wrong}</div>          `
+    idstat.innerHTML +=`<div>Correct answers today: ${right}</div> 
+    <div>Today errors: ${wrong}</div>          `
 }
 
 if (aut.id!='') {loadStat ()}
 else
-{idstat.innerHTML +=`<div>User not authorized</div>`}
+{idstat.innerHTML +=`<div>You will have access to Statistics after authorization</div>`}
