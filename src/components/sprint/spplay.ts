@@ -14,23 +14,23 @@ console.log('sprint PLAY level ',level)
 let points=0
 
 type word ={
-    group:  Number, 
-    page:   Number, 
-    word:   String, 
-    image:  String, 
-    audio:  String, 
-    audioMeaning:  String, 
-    audioExample:  String, 
-    textMeaning:   String, 
-    textExample:   String,     
-    transcription: String,  
-    wordTranslate: String,
-    textMeaningTranslate: String,
-    textExampleTranslate: String
+    group:  number, 
+    page:   number, 
+    word:   string, 
+    image:  string, 
+    audio:  string, 
+    audioMeaning:  string, 
+    audioExample:  string, 
+    textMeaning:   string, 
+    textExample:   string,     
+    transcription: string,  
+    wordTranslate: string,
+    textMeaningTranslate: string,
+    textExampleTranslate: string
   }
 
-let wrongW:word[]=[];
-let rightW:word[]=[];
+const wrongW:word[]=[];
+const rightW:word[]=[];
 let otv=0;
 let weight=10;
 

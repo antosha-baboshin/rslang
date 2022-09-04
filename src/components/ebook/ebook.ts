@@ -1,5 +1,5 @@
 import { checkActiveLevel } from "./checks/checkActiveLevel";
-import { defaultStorage } from "../../utilities/settings/defaultStorage";
+import { defaultStorage } from "./utilities/settings/defaultStorage";
 import { addWordsList } from "./adds/addWordsList";
 import { addPagination } from "./adds/addPagination";
 

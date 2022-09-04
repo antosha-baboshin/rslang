@@ -1,4 +1,4 @@
-import { Word } from "../utilities/interfaces/interfaces";
+import { Word } from "../ebook/utilities/interfaces/interfaces";
 
 export const BASE = process.env.SERVER;
 export const WORDS = `${BASE}/words`;

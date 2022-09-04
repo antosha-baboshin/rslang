@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import Aut from "../../../api/aut";
-import { getUserWords } from "../../../api/usersWords";
-import { BASE, getWordByID } from "../../../api/words";
-import { GetUserWord, Word } from "../../../utilities/interfaces/interfaces";
+import Aut from "../../api/aut";
+import { getUserWords } from "../../api/usersWords";
+import { BASE, getWordByID } from "../../api/words";
+import { GetUserWord, Word } from "../utilities/interfaces/interfaces";
 import { addAudioplayers } from "../adds/addAudioplayers";
 import { addWords } from "../adds/addWords";
 import { checkProgress } from "../checks/checkProgress";

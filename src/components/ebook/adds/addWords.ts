@@ -1,6 +1,6 @@
-import Aut from "../../../api/aut";
-import { createUserWord, getUserWords, updateUserWord } from "../../../api/usersWords";
-import { GetUserWord } from "../../../utilities/interfaces/interfaces";
+import Aut from "../../api/aut";
+import { createUserWord, getUserWords, updateUserWord } from "../../api/usersWords";
+import { GetUserWord } from "../utilities/interfaces/interfaces";
 import { renderDifficultWords } from "../renders/renderDifficultWords";
 import { renderWordsList } from "../renders/renderWordsList";
 

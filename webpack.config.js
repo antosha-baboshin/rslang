@@ -14,15 +14,15 @@ const PATHS = {
 const baseConfig = {
     entry: {
         main: `${PATHS.src}/index.ts`,
-        ebook: `${PATHS.src}/ebook.ts`,
-        spmain: `${PATHS.src}/sprint/spmain.ts`,
-        auth: `${PATHS.src}/authorization/authorization.ts`,
-        spplay: `${PATHS.src}/sprint/spplay.ts`,
-        spfinal: `${PATHS.src}/sprint/spfinal.ts`,
-        chmain: `${PATHS.src}/challenge/chellmain.ts`,
-        chplay: `${PATHS.src}/challenge/chellplay.ts`,
-        chfinal: `${PATHS.src}/challenge/chellfinal.ts`,
-        stat: `${PATHS.src}/statistic/statistic.ts`,
+        ebook: `${PATHS.src}/components/ebook/ebook.ts`,
+        spmain: `${PATHS.src}/components/sprint/spmain.ts`,
+        auth: `${PATHS.src}/components/authorization/authorization.ts`,
+        spplay: `${PATHS.src}/components/sprint/spplay.ts`,
+        spfinal: `${PATHS.src}/components/sprint/spfinal.ts`,
+        chmain: `${PATHS.src}/components/challenge/chellmain.ts`,
+        chplay: `${PATHS.src}/components/challenge/chellplay.ts`,
+        chfinal: `${PATHS.src}/components/challenge/chellfinal.ts`,
+        stat: `${PATHS.src}/components/statistic/statistic.ts`,
     },
     mode: 'development',
     module: {
@@ -70,47 +70,47 @@ const baseConfig = {
         }),
 
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/sprint/sprint-play.html'),
+            template: path.resolve(__dirname, './src/components/sprint/sprint-play.html'),
             filename: './sprint/sprint-play.html',
             chunks: ["spplay"]
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/sprint/sprint-main.html'),
+            template: path.resolve(__dirname, './src/components/sprint/sprint-main.html'),
             filename: './sprint/sprint-main.html',
             chunks: ["spmain"]
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/sprint/sprint-final.html'),
+            template: path.resolve(__dirname, './src/components/sprint/sprint-final.html'),
             filename: './sprint/sprint-final.html',
             chunks: ["spfinal"]
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/challenge/challenge-main.html'),
+            template: path.resolve(__dirname, './src/components/challenge/challenge-main.html'),
             filename: './challenge/challenge-main.html',
             chunks: ["chmain"]
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/challenge/challenge-play.html'),
+            template: path.resolve(__dirname, './src/components/challenge/challenge-play.html'),
             filename: './challenge/challenge-play.html',
             chunks: ["chplay"]
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/challenge/challenge-final.html'),
+            template: path.resolve(__dirname, './src/components/challenge/challenge-final.html'),
             filename: './challenge/challenge-final.html',
             chunks: ["chfinal"]
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/authorization/authorization.html'),
+            template: path.resolve(__dirname, './src/components/authorization/authorization.html'),
             filename: './authorization/authorization.html',
             chunks: ["auth"]
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/ebook.html'),
+            template: path.resolve(__dirname, './src/components/ebook/ebook.html'),
             filename: './ebook.html',
             chunks: ["ebook"]
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/statistic/statistic.html'),
+            template: path.resolve(__dirname, './src/components/statistic/statistic.html'),
             filename: './statistic/statistic.html',
             chunks: ["stat"]
         }),

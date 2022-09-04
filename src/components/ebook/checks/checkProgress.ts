@@ -1,6 +1,6 @@
-import Aut from "../../../api/aut";
-import { getUserWords } from "../../../api/usersWords";
-import { GetUserWord } from "../../../utilities/interfaces/interfaces";
+import Aut from "../../api/aut";
+import { getUserWords } from "../../api/usersWords";
+import { GetUserWord } from "../utilities/interfaces/interfaces";
 
 const aut = new Aut();
 aut.loadUser()
