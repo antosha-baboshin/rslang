@@ -1,3 +1,5 @@
+import "./ebook.css";
+import "../../css/styles.css"
 import { checkActiveLevel } from "./checks/checkActiveLevel";
 import { defaultStorage } from "./utilities/settings/defaultStorage";
 import { addWordsList } from "./adds/addWordsList";
@@ -11,3 +13,5 @@ export const addEbook = (): void => {
   addWordsList();
   addPagination();
 }
+
+addEbook();
