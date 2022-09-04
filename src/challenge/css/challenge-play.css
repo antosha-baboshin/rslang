@@ -101,7 +101,7 @@ body {
 
 .show-img {
     width: 180px;
-    height: auto;
+    height: 180px;
     border-radius: 100px;
     box-shadow: 3px 3px 3px gray;
     border: solid 1px black;

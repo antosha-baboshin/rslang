@@ -5,4 +5,6 @@ console.log('start AUT')
 const aut = new Aut();
 aut.loadUser();
 aut.addListener()
-aut.viewUser() 
+aut.viewUser('../assets/img/dravava.jpg') 
+
+

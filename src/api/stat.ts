@@ -11,7 +11,7 @@ type stat = {
     wrong: number;
   }
 
- export async function statistic (right:number, wrong:number, url:string){
+ export async function statistic (right:number, wrong:number, url?:string){
     console.log('statistic ',right,wrong, 'user ',aut)
     if (aut.id !='')
     {
@@ -39,8 +39,9 @@ type stat = {
    dataStat.data=dat;
 
    addStat(dataStat);
-   window.location.href =url
    }
+   if (url) window.location.href =url
+   
   }
   
   function addStat (sts:stat){

@@ -1,3 +1,4 @@
+const MAIN_URL=`../index.html`
 class Aut {
     name:string;
     email:string;
@@ -20,17 +21,18 @@ class Aut {
       if (!file.type.startsWith('image/')){ alert("This is not image!"); return } 
       const reader = new FileReader();
       reader.onload =((e)=> {
-        alert("Image added");
         if (e.target) {
           this.avatara =  e.target.result as string;
           this.savUser();
-          if (elem) this.viewAva(elem);
+          const imgAva = document.getElementById('usrimage') as HTMLInputElement
+          imgAva.src=this.avatara
+          //if (elem) this.viewAva(elem);
         }
       });
       reader.readAsDataURL(file);
     }
 
-    async addUser(email:string, password:string, name:string) {
+    async addUser(email:string, password:string, name:string,url?:string) {
        const usr= (this.avatara!='' ) ?{name:name, email:email, password:password,img_buf:this.avatara }
                                     :{name:name, email:email, password:password};
        fetch(process.env.SERVER+'/users', {
@@ -48,7 +50,7 @@ class Aut {
           this.email=email;
           this.name=name;
           console.log('User added', data.id)
-          this.SignIn(email, password)
+          this.SignIn(email, password,url)
           } else alert("Users ERROR") 
       })
       .catch(() => console.log('ERROR adding user'))
@@ -62,15 +64,17 @@ class Aut {
       img.setAttribute('src', this.avatara);
     }
 
-    viewUser(){
+    viewUser(defimg?:string){
       document.getElementById("usrname")!.querySelector('input')!.value=this.name ; 
       document.getElementById("usremail")!.querySelector('input')!.value=this.email  ;   
       document.getElementById("usrpassword")!.querySelector('input')!.value=''  ;   
-      const imgAva = document.getElementById('usrimage') as HTMLElement
-      this.viewAva(imgAva) 
+      const imgAva = document.getElementById('usrimage') as HTMLInputElement
+      if (this.avatara!='')  {imgAva.src=this.avatara}
+       else  {if (defimg) {imgAva.src=defimg} else imgAva.src=''}
+        //this.viewAva(imgAva) 
     }
 
-    async SignIn(email:string, password:string){
+    async SignIn(email:string, password:string,url?:string){
       fetch(process.env.SERVER+'/signin', {
      method: 'POST',
      headers: {
@@ -90,6 +94,7 @@ class Aut {
         console.log('User autorization is successful')
         this.savUser();
         this.getUser();
+        if (url && url!='') window.location.href=url; 
     })
     .catch(() => alert("ERROR authorization"))
   }
@@ -108,7 +113,7 @@ class Aut {
   .then(async  res => {
       const data=  await res.json()
       this.name=data.name;
-      if (data.img_buf) this.avatara=data.img_buf;
+      if (data.img_buf!='') this.avatara=data.img_buf;
       this.savUser();
       this.viewUser()
   })
@@ -123,6 +128,7 @@ class Aut {
      const usremail = document.getElementById("usremail")!.querySelector('input')!.value  ;   
      const usrpass = document.getElementById("usrpassword")!.querySelector('input')!.value  ;   
      this.addUser(usremail,usrpass,usrname)
+
      });
     
      const usrsignin = document.getElementById("usrsignin") as HTMLInputElement;
@@ -135,7 +141,7 @@ class Aut {
       const usrsignout = document.getElementById("usrsignout") as HTMLInputElement;
       usrsignout.addEventListener("click", ()=>{
         this.SignOut()
-        this.viewUser();
+        this.viewUser('../assets/img/dravava.jpg');
        });
  
 
@@ -195,8 +201,6 @@ class Aut {
      this.name='';
      this.avatara='';
      console.log('Sign Out')
-     document.getElementById('usrauth')!
-       .addEventListener("click", ()=>window.location.href =`./index.html` )  
   }
 }
 
