@@ -11,29 +11,29 @@ if (url.searchParams.get('level')) level=Number(url.searchParams.get('level'))
 console.log('challenge PLAY level ',level)
 
 type word ={
-    group:  Number, 
-    page:   Number, 
-    word:   String, 
-    image:  String, 
-    audio:  String, 
-    audioMeaning:  String, 
-    audioExample:  String, 
-    textMeaning:   String, 
-    textExample:   String,     
-    transcription: String,  
-    wordTranslate: String,
-    textMeaningTranslate: String,
-    textExampleTranslate: String
+    group:  number, 
+    page:   number, 
+    word:   string, 
+    image:  string, 
+    audio:  string, 
+    audioMeaning:  string, 
+    audioExample:  string, 
+    textMeaning:   string, 
+    textExample:   string,     
+    transcription: string,  
+    wordTranslate: string,
+    textMeaningTranslate: string,
+    textExampleTranslate: string
   }
 
 let answer=0;  
-let wrng:boolean=false;
-let wrongW:word[]=[];
-let rightW:word[]=[];
+let wrng=false;
+const wrongW:word[]=[];
+const rightW:word[]=[];
 
 let words:word[]=[];
 let wrd:word;
-let reswrd:word[]=[];
+const reswrd:word[]=[];
 const ideng= document.getElementById("engwrld") as HTMLInputElement;
 const showimg= document.getElementById("showimg") as HTMLInputElement;
 

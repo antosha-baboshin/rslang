@@ -1,4 +1,4 @@
-import { BASE, getWords } from "../../../api/words";
+import { BASE, getWords } from "../../api/words";
 import { Word } from "../../../utilities/interfaces/interfaces";
 import { addAudioplayers } from "../adds/addAudioplayers";
 import { addWords } from "../adds/addWords";

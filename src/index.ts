@@ -5,7 +5,7 @@ import "./css/sidebar.css"
 //import "./assets/fonts/circular/stylesheet.css"
 //import "./assets/fonts/sofia-pro/stylesheet.css"
 
-import Aut from "./api/aut";
+import Aut from "./components/api/aut";
 
 const aut = new Aut();
 aut.loadUser()
