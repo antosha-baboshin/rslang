@@ -5,31 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RS Lang Main Page</title>
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/sidebar.css">
-    <link rel="stylesheet" href="./css/authorization.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./assets/fonts/circular/stylesheet.css">
-    <link rel="stylesheet" href="./assets/fonts/sofia-pro/stylesheet.css">
+    <link rel="icon" href="./src/assets/icons/favicon.png">
 </head>
 <body>
     <main class="main">
         <div class="sidebar">
         <nav class="sidebar-nav nav">
             <ul class="nav-list">
-                <li><a href="#"><img src="./src/assets/icons/home.svg" alt="home"></a></li>
+                <li><a href="./index.html"><img src="./src/assets/icons/home.svg" alt="home"></a></li>
                 <li><a href="./src/authorization.html"><img src="./src/assets/icons/me.svg" alt="me"></a></li>
-                <li><a href="#"><img src="./src/assets/icons/study.svg" alt="study"></a></li>
+                <li><a href="./ebook.html"><img src="./src/assets/icons/study.svg" alt="study"></a></li>
                 <li><a href="#"><img class="statistic_icon" src="./src/assets/icons/stats.png" alt="statistics"></a></li>
-                <li><a href="#"><img src="./src/assets/icons/sprint.svg" alt="Sprint"></a></li>
+                <li><a href="./sprint/sprintmain.html"><img src="./src/assets/icons/sprint.svg" alt="Sprint"></a></li>
                 <li><a href="#"><img src="./src/assets/icons/audiocall.svg"></a></li>
             </ul>
         </nav>
         </div>
-        <header class="header">
+        <header class="header" id="header">
             <div class="header_container">
                 <div class="header_text">
                     <h1 class="header_title">Hello, friend!</h1>
@@ -38,156 +30,13 @@
                 <img class="header_img" src="./src/assets/icons/header-img.svg">
             </div>
         </header>
-        <!-- <div class="mycourse_container">
-            <div class="mycourse_current">
-                <div class="mycourse_spanish">
-                    <img class="mycourse_spanish_logo" src="./src/assets/icons/UK.svg">
-                </div>
-                <div class="mycourse_current_name">
-                    <h2 class="mycourse_name_title">English level 1</h2>
-                    <span class="mycourse_author">by English Daddy</span>
-                </div>
-                <div class="mycourse_progress">
-                    <span class="mycourse_progress_percent">83%</span>
-                </div>
-                <button class="mycourse_continue_btn">Continue</button>
-            </div>
-            <div class="mycourse_arr_btns">
-                <a href="#"><img src="./assets/icons/arr-left.svg"></a>
-                <a href="#"><img src="./assets/icons/arr-right.svg"></a>
-            </div>
-        </div> -->
-        <!-- <section class="allcourses_container">
-            <h2 class="allcourses_container_title">Courses</h2>
-            <ul class="allcourses_categories">
-                <a href="#"><li class="allcourses_categories_item current">All Couses</li></a>
-                <a href="#"><li class="allcourses_categories_item">The Newest</li></a>
-                <a href="#"><li class="allcourses_categories_item">Completed</li></a>
-            </ul>
-            <div class="allcourses_block">
-                <div class="allcourses_block_item">
-                    <div class="allcourses_item">
-                        <img class="allcourses_item_logo" src="./src/assets/icons/UK.svg">
-                    </div>
-                    <div class="allcourses_item_name">
-                        <h2 class="allcourses_item_title">A1 Elementary</h2>
-                        <span class="allcourses_item_author">by English Daddy</span>
-                    </div>
-                    <div class="allcourses_item_time">
-                        <img class="allcourses_item_timeicon" src="./src/assets/icons/time.svg"></img>
-                        <span class="allcourses_totaltime">6h 30min</span>
-                    </div>
-                    <div class="allcourses_item_rate">
-                        <img class="allcourses_item_rateicon" src="./src/assets/icons/flame.svg"></img>
-                        <span class="allcourses_totalrate">4.9</span>
-                    </div>
-                    <button class="allcourses_viewbtn">View Course</button>
-                    
-                </div>
-                <div class="allcourses_block_item">
-                    <div class="allcourses_item">
-                        <img class="allcourses_item_logo" src="./src/assets/icons/UK.svg">
-                    </div>
-                    <div class="allcourses_item_name">
-                        <h2 class="allcourses_item_title">A2 Pre-Intermadiate</h2>
-                        <span class="allcourses_item_author">by English Man</span>
-                    </div>
-                    <div class="allcourses_item_time">
-                        <img class="allcourses_item_timeicon" src="./src/assets/icons/time.svg"></img>
-                        <span class="allcourses_totaltime">6h 30min</span>
-                    </div>
-                    <div class="allcourses_item_rate">
-                        <img class="allcourses_item_rateicon" src="./src/assets/icons/flame.svg"></img>
-                        <span class="allcourses_totalrate">4.9</span>
-                    </div>
-                    <button class="allcourses_viewbtn">View Course</button>
-                    
-                </div>
-                <div class="allcourses_block_item">
-                    <div class="allcourses_item">
-                        <img class="allcourses_item_logo" src="./src/assets/icons/UK.svg">
-                    </div>
-                    <div class="allcourses_item_name">
-                        <h2 class="allcourses_item_title">B1 Intermadiate</h2>
-                        <span class="allcourses_item_author">by English Man</span>
-                    </div>
-                    <div class="allcourses_item_time">
-                        <img class="allcourses_item_timeicon" src="./src/assets/icons/time.svg"></img>
-                        <span class="allcourses_totaltime">6h 30min</span>
-                    </div>
-                    <div class="allcourses_item_rate">
-                        <img class="allcourses_item_rateicon" src="./src/assets/icons/flame.svg"></img>
-                        <span class="allcourses_totalrate">4.9</span>
-                    </div>
-                    <button class="allcourses_viewbtn">View Course</button>
-                    
-                </div>
-                <div class="allcourses_block_item">
-                    <div class="allcourses_item">
-                        <img class="allcourses_item_logo" src="./src/assets/icons/UK.svg">
-                    </div>
-                    <div class="allcourses_item_name">
-                        <h2 class="allcourses_item_title">B2 Upper-Intermadiate</h2>
-                        <span class="allcourses_item_author">by English Man</span>
-                    </div>
-                    <div class="allcourses_item_time">
-                        <img class="allcourses_item_timeicon" src="./src/assets/icons/time.svg"></img>
-                        <span class="allcourses_totaltime">6h 30min</span>
-                    </div>
-                    <div class="allcourses_item_rate">
-                        <img class="allcourses_item_rateicon" src="./src/assets/icons/flame.svg"></img>
-                        <span class="allcourses_totalrate">4.9</span>
-                    </div>
-                    <button class="allcourses_viewbtn">View Course</button>
-                    
-                </div>
-                <div class="allcourses_block_item">
-                    <div class="allcourses_item">
-                        <img class="allcourses_item_logo" src="./src/assets/icons/UK.svg">
-                    </div>
-                    <div class="allcourses_item_name">
-                        <h2 class="allcourses_item_title">C1 Advanced</h2>
-                        <span class="allcourses_item_author">by English Man</span>
-                    </div>
-                    <div class="allcourses_item_time">
-                        <img class="allcourses_item_timeicon" src="./src/assets/icons/time.svg"></img>
-                        <span class="allcourses_totaltime">6h 30min</span>
-                    </div>
-                    <div class="allcourses_item_rate">
-                        <img class="allcourses_item_rateicon" src="./src/assets/icons/flame.svg"></img>
-                        <span class="allcourses_totalrate">4.9</span>
-                    </div>
-                    <button class="allcourses_viewbtn">View Course</button>
-                    
-                </div>
-                <div class="allcourses_block_item">
-                    <div class="allcourses_item">
-                        <img class="allcourses_item_logo" src="./src/assets/icons/UK.svg">
-                    </div>
-                    <div class="allcourses_item_name">
-                        <h2 class="allcourses_item_title">English level 6</h2>
-                        <span class="allcourses_item_author">by English Man</span>
-                    </div>
-                    <div class="allcourses_item_time">
-                        <img class="allcourses_item_timeicon" src="./src/assets/icons/time.svg"></img>
-                        <span class="allcourses_totaltime">6h 30min</span>
-                    </div>
-                    <div class="allcourses_item_rate">
-                        <img class="allcourses_item_rateicon" src="./src/assets/icons/flame.svg"></img>
-                        <span class="allcourses_totalrate">4.9</span>
-                    </div>
-                    <button class="allcourses_viewbtn">View Course</button>
-                    
-                </div>
-            </div>
-        </section> -->
         <div class="about_block">
             <h2 class="about_title">RSLang</h2>
             <span class="about_text">Now learning English is easy and fun! Play mini-games and learn to memorize words. The dictionary contains all the words that were previously encountered in games. Repeat them every day to consolidate the result.</span>
         </div>
         <div class="ebook_block">
             <h2 class="ebook_block_title">Book</h2>
-                <a href="#">
+                <a href="./ebook.html">
                 <div class="ebook">
                     <img class="sprint_img" src="./src/assets/img/book.jpg" alt="Sprint Game">
                 </div></a>
@@ -196,26 +45,16 @@
             <h2 class="statistics_block_title">Statistics</h2>
             <a href="#"><img class="statistics_graph" src="./src/assets/img/statistics.jpeg"></a>
         </div>
-        <div class="auth_block">
-            <div class="auth_name">
-                <span>Андрей Пупкин</span>
-            </div>
+            <div class="auth_block">
+            <a href="./src/authorization.html"><div class="auth_name">
+                <span class="authorization">Авторизироваться</span>
+            </div></a>
             <img class="profile_icon" src="./src/assets/img/MaskGroup.jpeg" alt="Notification">
             <a href="#"><img class="logout_icon" src="./src/assets/icons/log-out.svg" alt="Notification"></a>
         </div>
-        <!-- <div class="statistics_block_boxes">
-            <div class="statistics_box_complete">
-                <h3 class="statistics_box_total">11</h3>
-                <span class="statistics_box_title">Courses<br>completed</span>
-            </div>
-            <div class="statistics_box_progress">
-                <h3 class="statistics_box_total">4</h3>
-                <span class="statistics_box_title">Courses<br>in progress</span>
-            </div>
-        </div> -->
         <div class="games_block">
             <h2 class="games_block_title">Games</h2>
-            <a href="#">
+            <a href="./sprint/sprintmain.html">
                 <div class="games_sprint">
                     <img class="sprint_img" src="./src/assets/img/sprint.jpg" alt="Sprint Game">
                     <span class="games_name">Sprint</span>
@@ -252,34 +91,29 @@
                     <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
                 </div>
             </div>
-            <!-- <div class="team_arr_btns">
-                <a href="#"><img src="./assets/icons/arr-left.svg"></a>
-                <a href="#"><img src="./assets/icons/arr-right.svg"></a>
-            </div> -->
         </div>
-
     </main>
     <footer class="footer">
-      <div class="footer_block">
-         <div class="footer_course">
-            <a href="https://rs.school"><img class="course_logo" src="./src/assets/icons/rs_school.svg"></a>
-             <span class="course_year">2022 г.</span>
-         </div>
-         <div class="footer_team">
-            <div class="footer_team_member">
-                <a href="https://rs.school"><img class="github_logo" src="./src/assets/icons/github_icon.svg"></a>
-                <span class="team_member_name">Антон</span>
-            </div>
-            <div class="footer_team_member">
-                <a href="https://rs.school"><img class="github_logo" src="./src/assets/icons/github_icon.svg"></a>
-                <span class="team_member_name">Светлана</span>
-            </div>
-            <div class="footer_team_member">
-                <a href="https://rs.school"><img class="github_logo" src="./src/assets/icons/github_icon.svg"></a>
-                <span class="team_member_name">Павел</span>
-            </div>
-         </div>
-      </div>
+        <div class="footer_block">
+           <div class="footer_course">
+              <a href="https://rs.school"><img class="course_logo" src="./src/assets/icons/rs_school.svg"></a>
+               <span class="course_year">2022 г.</span>
+           </div>
+           <div class="footer_team">
+              <div class="footer_team_member">
+                  <a href="https://rs.school"><img class="github_logo" src="./src/assets/icons/github_icon.svg"></a>
+                  <span class="team_member_name">Антон</span>
+              </div>
+              <div class="footer_team_member">
+                  <a href="https://rs.school"><img class="github_logo" src="./src/assets/icons/github_icon.svg"></a>
+                  <span class="team_member_name">Светлана</span>
+              </div>
+              <div class="footer_team_member">
+                  <a href="https://rs.school"><img class="github_logo" src="./src/assets/icons/github_icon.svg"></a>
+                  <span class="team_member_name">Павел</span>
+              </div>
+           </div>
+        </div>
     </footer>
     <!-- <div><a href="./src/authorization.html">Authorization</div> -->
     <!-- <div><a href="./sprint/sprintmain.html">game SPRINT</div> -->
