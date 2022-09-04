@@ -19,4 +19,104 @@ body {
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
+    margin-top: 70px;
+}
+
+.point-red {
+    color: red;
+}
+
+.header {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-container {
+    display: flex;
+    width: 680px;
+    height: 160px;
+    margin-top: 34px;
+    border-radius: 20px;
+    flex-direction: row;
+    box-shadow: 3px 3px 3px gray;
+    border: solid 1px black;
+}
+
+.header-text {
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.header_img {
+    margin-left: 30px;
+    margin-top: -31px;
+    width: 170px;
+    height: auto;
+}
+
+.auth-input {
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px gray;
+    border: solid 1px black;
+    padding: 10px;
+}
+
+.user-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.sprint-btn-play {
+    display: flex;
+    width: 160px;
+    height: 40px;
+    background-color: rgb(241, 239, 239);
+    border-radius: 10px;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 3px 3px 3px gray;
+    border: solid 1px black;
+}
+
+.auth-btn {
+    width: 120px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 10px;
+    color: white;
+    margin-top: 10px;
+    box-shadow: 3px 3px 3px gray;
+    border: solid 1px black;
+}
+
+.purple {
+    background-color: rgb(219, 176, 245);
+}
+
+.pink {
+    background-color: rgb(255, 71, 125);
+}
+
+.text-avatar {
+    margin-top: 10px;
+}
+
+.img-avatar {
+    width: 20px;
+    height: auto;
 }

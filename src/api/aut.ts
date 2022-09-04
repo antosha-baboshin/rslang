@@ -17,10 +17,10 @@ class Aut {
      }
 
     loadImg(file:File, elem?: HTMLElement) {
-      if (!file.type.startsWith('image/')){ console.log('This is not image!'); return } 
+      if (!file.type.startsWith('image/')){ alert("This is not image!"); return } 
       const reader = new FileReader();
       reader.onload =((e)=> {
-        console.log('Image added');
+        alert("Image added");
         if (e.target) {
           this.avatara =  e.target.result as string;
           this.savUser();
@@ -47,10 +47,9 @@ class Aut {
           this.id=data.id;
           this.email=email;
           this.name=name;
-          console.log('User added ', data.id)
-          this.SignIn(email,password)
-          } else console.log('Users ERROR') 
-          
+          console.log('User added', data.id)
+          this.SignIn(email, password)
+          } else alert("Users ERROR") 
       })
       .catch(() => console.log('ERROR adding user'))
     }
@@ -91,10 +90,8 @@ class Aut {
         console.log('User autorization is successful')
         this.savUser();
         this.getUser();
-
-        
     })
-    .catch(() => console.log('ERROR authorization'))
+    .catch(() => alert("ERROR authorization"))
   }
 
   async getUser(){
@@ -198,6 +195,8 @@ class Aut {
      this.name='';
      this.avatara='';
      console.log('Sign Out')
+     document.getElementById('usrauth')!
+       .addEventListener("click", ()=>window.location.href =`./index.html` )  
   }
 }
 
