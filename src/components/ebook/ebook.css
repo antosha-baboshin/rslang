@@ -3,7 +3,7 @@
 }
 
 .body-active {
-  background-color: aquamarine;
+  background-color: rgb(219, 176, 245);
 }
 
 .level-buttons {
@@ -30,7 +30,7 @@
 }
 
 .denied-level {
-  background-color: rgb(248, 97, 97);
+  background-color: rgb(255, 71, 125);
 }
 
 .denied-level:hover {
@@ -127,11 +127,11 @@
   color: gold;
 }
 .difficult-active {
-  background-color: rgb(248, 97, 97);
+  background-color: rgb(255, 71, 125);
 }
 
 .learned-active {
-  background-color: rgb(59, 156, 59);
+  background-color: rgb(219, 176, 245);
 }
 
 /* Ebook */
@@ -158,4 +158,10 @@
 .audio::-webkit-media-controls-play-button {
   background-color: gold;
   border-radius: 20px;
+}
+
+.progress-wrapper {
+  text-align: center;
+  line-height: 20px;
+  color: gray;
 }

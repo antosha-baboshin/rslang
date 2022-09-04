@@ -1,15 +1,15 @@
-import { BASE, getWords } from "../../../api/words";
+import { BASE, getWords } from "../../api/words";
 import { Word } from "../../../utilities/interfaces/interfaces";
 import { addAudioplayers } from "../adds/addAudioplayers";
 import { addWords } from "../adds/addWords";
 import { checkPage } from "../checks/checkPage";
+import { checkProgress } from "../checks/checkProgress";
 import { checkActiveDifficultWords, checkActiveLearnedWords } from "../checks/checkWords";
 import { renderLearningsButtons } from "./renderLearningButtons";
 
 export const renderWordsList = async (group: number, page: number): Promise<void> => {
   const WORDS_LIST_WRAPPER = document.querySelector('.words-list-wrapper') as HTMLDivElement;
   const data: Word|undefined  = await getWords(group, page);
-
   const WORDS_TABLE = `
     ${(data as unknown as Word[]).map((obj: Word): string => `
     <div class="word-block">
@@ -37,8 +37,11 @@ export const renderWordsList = async (group: number, page: number): Promise<void
   `;
   WORDS_LIST_WRAPPER.innerHTML = WORDS_TABLE;
   addAudioplayers();
-  addWords();
-  checkActiveDifficultWords();
-  checkActiveLearnedWords();
-  checkPage();
+  if (localStorage.autority) {
+    addWords();
+    checkActiveDifficultWords();
+    checkActiveLearnedWords();
+    checkPage();
+    checkProgress();
+  }
 }
