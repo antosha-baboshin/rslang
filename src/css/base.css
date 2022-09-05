@@ -1,0 +1,37 @@
+html {
+    scroll-behavior: smooth;
+}
+.body {
+    font-family: 'Sofia', sans-serif;
+    color: #000;
+    font-size: 15px;
+    line-height: 1;
+    background-color: white;
+    display: flex;
+    column-gap: 37px;
+    font-weight: 400;
+    height: 1200px;
+    position: relative;
+    width: 100%;
+}
+
+.none {
+    display: none !important;
+}
+.visually-hidden {
+    opacity: 0;
+    visibility: hidden;
+    width: 0px;
+    height: 0px;
+    display: block;
+    margin-left: -10000px;
+    background: transparent;
+    font-size: 0;
+}
+
+.body-components {
+    max-height:none;
+    min-height: 100vh;
+    height: 1100px;
+    position: relative;
+}

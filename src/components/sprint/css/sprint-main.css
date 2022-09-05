@@ -1,0 +1,165 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Sofia', sans-serif;
+    color: #000;
+    background-color: white;
+    display: flex;
+    max-height: 1020px;
+}
+
+.authorization {
+    position: absolute;
+    right: 0;
+    padding: 20px;    
+}
+
+.main-sprint-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.allcourses-sprint-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.allcourses-sprint-block-item {
+    display: flex;
+    width: 560px;
+    height: 180px;
+    margin-top: 15px;
+    border-radius: 20px;
+    align-items: center;
+    box-shadow: 3px 3px 3px gray;
+    border: solid 2px black;
+}
+
+.allcourses-sprint-item {
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.allcourses-sprint-item-logo {
+    display: flex;
+    width: 150px;
+    height: auto;
+    padding-left: 20px;
+}
+
+.allcourses-sprint-item-title {
+    font-size: 64px;
+    line-height: 25px;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.allcourses-sprint-item-author {
+    font-size: 30px;
+    line-height: 15px;
+    padding-left: 20px;
+}
+
+.allcourses-sprint-item-name {
+    margin-left: 20px;
+}
+
+.allcourses-sprint-viewbtn {
+    display: flex;
+    width: 120px;
+    height: 40px;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.allcourses-sprint-viewbtn:hover {
+    color: gold;
+}
+
+.sprint-btn-play {
+    display: flex;
+    width: 160px;
+    height: 40px;
+    background-color: rgb(241, 239, 239);
+    border-radius: 10px;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 3px 3px 3px gray;
+    border: solid 2px black;
+    cursor: pointer;
+}
+
+.sprint-btn-play:hover {
+    color: gold;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 132px;
+    height: 853.12px;
+    background-color: black;
+    margin: 34px 0 23px 32px;
+    border-radius: 25px;
+}
+
+.sidebar-nav {
+    margin-top: 100px;
+}
+
+.nav-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 44px;
+}
+
+.nav-list {
+    font-size: 15.71px;
+}
+
+.nav-list li {
+    margin-bottom: 60px;
+}
+
+.nav-list img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 26px;
+    width: 48px;
+    height: auto;
+    object-fit: none;
+}
+
+.sidebar-help {
+    margin-top: auto;
+}
+
+.help {
+    font-size: 15.7px;
+}
+
+.help-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 50px;
+}

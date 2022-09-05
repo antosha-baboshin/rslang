@@ -1,0 +1,149 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Sofia', sans-serif;
+    color: #000;
+    line-height: 1;
+    background-color: white;
+    display: flex;
+    max-height: 1020px;
+}
+
+.authwrapper-up {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.authwrapper-down {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-sprint-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    margin-top: -5%;
+}
+
+.allcourses-sprint-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.allcourses-sprint-block-item {
+    display: flex;
+    width: 540px;
+    height: 150px;
+    margin-top: 15px;
+    border-radius: 20px;
+    align-items: center;
+    box-shadow: 3px 3px 3px gray;
+    border: solid 2px black;
+}
+
+.allcourses-sprint-item {
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.allcourses-sprint-item-logo {
+    display: flex;
+    width: 150px;
+    height: auto;
+    padding-left: 20px;
+}
+
+.allcourses-sprint-item-name {
+    text-align: center;
+}
+
+.allcourses-sprint-item-title {
+    font-size: 64px;
+    line-height: 25px;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.main-stat-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 18px;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 132px;
+    height: 853.12px;
+    background-color: black;
+    margin: 34px 0 23px 32px;
+    border-radius: 25px;
+}
+
+.sidebar-nav {
+    margin-top: 100px;
+}
+
+.nav-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 44px;
+}
+
+.nav-list {
+    font-size: 15.71px;
+}
+
+.nav-list li {
+    margin-bottom: 60px;
+}
+
+.nav-list img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 30px;
+    width: 48px;
+    height: auto;
+    object-fit: none;
+}
+
+.sidebar-help {
+    margin-top: auto;
+}
+
+.help {
+    font-size: 15.7px;
+}
+
+.help-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 50px;
+}
+
+.stat-img {
+    width: 30px;
+    height: auto;
+    filter: invert(100%);
+}
+
+.header2 {
+    margin: 20px 0;
+    font-size: 1.5em;
+    font-weight: bold;
+}

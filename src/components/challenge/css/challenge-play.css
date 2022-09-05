@@ -1,0 +1,187 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Sofia', sans-serif;
+    color: #000;
+    background-color: white;
+    display: flex;
+    max-height: 1020px;
+}
+
+.authorization {
+    position: absolute;
+    right: 0;
+    padding: 20px;
+    background-color: white; 
+}
+
+.main-game-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.allcourses-game-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.allcourses-game-block-item {
+    display: flex;
+    background-color: rgb(241, 239, 239);
+    width: 400px;
+    height: 220px;
+    margin-top: 15px;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.circle {
+    background-color: rgb(241, 239, 239);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 500%;
+    position: relative;
+    box-shadow: 3px 3px 3px gray;
+    border: solid 2px black;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-left: 40%;    
+}
+
+.game-block-wrapper {
+    text-align: center;
+}
+
+.sprint-playbtn {
+    width: 120px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 10px;
+    color: black;
+    margin: 15px;
+    box-shadow: 3px 3px 3px gray;
+    border: solid 2px black;
+    cursor: pointer;
+}
+
+.sprint-playbtn:hover {
+    color: gold;
+}
+
+.purple {
+    background-color: rgb(219, 176, 245);
+}
+
+.pink {
+    background-color: rgb(255, 71, 125);
+}
+
+.btn-wrapper, .wrapper-show, .text-circles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-voice {
+    width: 70px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    background-color: #000;
+    border-radius: 10px;
+}
+
+.show-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px gray;
+    border: solid 2px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.text-show {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.small-text {
+    font-size: 20px;
+}
+
+.one-word-wrapper {
+    margin: 20px;
+}
+
+.rus-text {
+    font-size: 18px;
+}
+
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 132px;
+    height: 853.12px;
+    background-color: black;
+    margin: 34px 0 23px 32px;
+    border-radius: 25px;
+}
+
+.sidebar-nav {
+    margin-top: 100px;
+}
+
+.nav-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 44px;
+}
+
+.nav-list {
+    font-size: 15.71px;
+}
+
+.nav-list li {
+    margin-bottom: 60px;
+}
+
+.nav-list img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 30px;
+    width: 48px;
+    height: auto;
+    object-fit: none;
+}
+
+.sidebar-help {
+    margin-top: auto;
+}
+
+.help {
+    font-size: 15.7px;
+}
+
+.help-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 50px;
+}

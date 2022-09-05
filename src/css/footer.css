@@ -1,0 +1,71 @@
+/* footer */
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  position: absolute;
+  bottom: 0;
+  min-width: 100%;
+}
+.footer_block {
+  display: flex;
+  height: 150px;
+  background-color: rgb(241, 239, 239);
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.footer_course {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: 100px;
+}
+.course_logo {
+  width: 100px;
+  height: 100px;
+  color: blanchedalmond;
+}
+.course_year {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 102px;
+  margin-left: 15px;
+}
+.github_logo {
+  height: 22px;
+}
+.footer_team {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  margin-right: 100px;
+}
+.team_member_name {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 10px;
+  color: black;
+}
+
+.presentation {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 102px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.presentation:hover {
+  color: gold;
+}
+
+.footer-components {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  position: absolute;
+  bottom: 0;
+  min-width: 100%;
+}
