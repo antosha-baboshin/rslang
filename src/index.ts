@@ -2,9 +2,8 @@ import "./css/styles.css"
 
 import Aut from "./components/api/aut";
 
-const aut = new Aut();
-aut.loadUser()
-//aut.newToken()
+const aut = new Aut()
+aut.newToken()
 
 const profile_icon= document.getElementById("profile_icon") as HTMLInputElement;
 if (profile_icon && aut.avatara!='') profile_icon.src=aut.avatara
