@@ -5,11 +5,9 @@ html {
 body {
     font-family: 'Sofia', sans-serif;
     color: #000;
-    font-size: 15px;
-    line-height: 1;
+   
     background-color: white;
     display: flex;
-    font-weight: 400;
     max-height: 1020px;
 }
 
@@ -19,7 +17,6 @@ body {
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    margin-top: 100px;
 }
 
 .point-red {
@@ -37,10 +34,10 @@ body {
     width: 680px;
     height: 160px;
     margin-top: 34px;
-    border-radius: 20px;
+    border-radius: 10px;
     flex-direction: row;
     box-shadow: 3px 3px 3px gray;
-    border: solid 1px black;
+    border: solid 2px black;
 }
 
 .header-text {
@@ -62,7 +59,7 @@ body {
 .auth-input {
     border-radius: 10px;
     box-shadow: 3px 3px 3px gray;
-    border: solid 1px black;
+    border: solid 2px black;
     padding: 10px;
 }
 
@@ -74,6 +71,13 @@ body {
     font-weight: bold;
     font-size: 16px;
     padding: 10px;
+}
+
+.authwrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .sprint-btn-play {
@@ -89,7 +93,12 @@ body {
     font-weight: bold;
     font-size: 16px;
     box-shadow: 3px 3px 3px gray;
-    border: solid 1px black;
+    border: solid 2px black;
+    cursor: pointer;
+}
+
+.sprint-btn-play:hover {
+    color: gold;
 }
 
 .auth-btn {
@@ -98,10 +107,15 @@ body {
     font-weight: bold;
     font-size: 16px;
     border-radius: 10px;
-    color: white;
+    color: black;
     margin-top: 10px;
     box-shadow: 3px 3px 3px gray;
-    border: solid 1px black;
+    border: solid 2px black;
+    cursor: pointer;
+}
+
+.auth-btn:hover {
+    color: gold;
 }
 
 .purple {
@@ -120,7 +134,59 @@ body {
     width: 120px;
     height: 100px;
     box-shadow: 3px 3px 3px gray;
-    border: solid 1px black;
+    border: solid 2px black;
     border-radius: 10px;
     margin-top: 10px;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 132px;
+    height: 853.12px;
+    background-color: black;
+    margin: 34px 0 23px 32px;
+    border-radius: 25px;
+}
+
+.sidebar-nav {
+    margin-top: 100px;
+}
+
+.nav-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 44px;
+}
+
+.nav-list {
+    font-size: 15.71px;
+}
+
+.nav-list li {
+    margin-bottom: 60px;
+}
+
+.nav-list img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 26px;
+    width: 48px;
+    height: auto;
+    object-fit: none;
+}
+
+.sidebar-help {
+    margin-top: auto;
+}
+
+.help {
+    font-size: 15.7px;
+}
+
+.help-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 50px;
 }
