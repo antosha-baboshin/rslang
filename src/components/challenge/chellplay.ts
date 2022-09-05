@@ -128,7 +128,7 @@ clkvoice.addEventListener("click",() => {
        if (answer==MAX_ANSWER){
             sessionStorage.setItem('spknown', JSON.stringify(rightW));
             sessionStorage.setItem('spnotknown', JSON.stringify(wrongW));
-            statistic(rightW.length, wrongW.length, `./challenge-final.html`)
+            statistic(rightW.length, wrongW.length, 'challenge', `./challenge-final.html`)
       
       }
        game()

@@ -6,9 +6,16 @@ const serv=process.env.SERVER
 const aut = new Aut();
 aut.loadUser()
 
-console.log('statistic user',aut)
-const idstat= document.getElementById("statisic") as HTMLInputElement;
+let rCh=0
+let wCh=0
+let rSp=0
+let wSp=0
 
+
+console.log('statistic user')
+const idstat= document.getElementById("statisic") as HTMLInputElement;
+const data = new Date();
+const dat = data.getFullYear()+data.getMonth()*10000+data.getDate()*1000000 
 
 function loadStat (){
 
@@ -25,13 +32,34 @@ function loadStat (){
    }).then( 
       async  res => {
         const data=  await res.json()
-        addstat(data.optional.right,data.optional.wrong)
-   }).catch(()=>addstat(0,0))
+        if (data.optional.data==dat) {
+                if ('challenge' in data.optional) {
+                  rCh =data.optional.challenge.right; 
+                  wCh =data.optional.challenge.wrong ;
+                }
+                if ('sprint' in data.optional) {
+                  rSp =data.optional.sprint.right; 
+                  wSp =data.optional.sprint.wrong ;
+                }
+              } 
+
+           addstat()
+        } 
+   ).catch(()=>addstat())
 }
 
-function addstat (right:number,wrong:number){
-    idstat.innerHTML +=`<div>Correct answers today: ${right}</div> 
-    <div>Today errors: ${wrong}</div>          `
+function addstat (){
+
+    const idstatSp= document.getElementById("statisicSp") as HTMLInputElement;
+    const idstatCh= document.getElementById("statisicCh") as HTMLInputElement;
+    idstat.innerHTML +=`<div>Correct answers today: ${rSp+rCh}</div> 
+    <div>Today errors: ${wSp+wCh}</div> `         
+    
+    idstatSp.innerHTML +=`<div>Correct answers today: ${rSp}</div> 
+    <div>Today errors: ${wSp}</div> `
+
+    idstatCh.innerHTML +=`<div>Correct answers today: ${rCh}</div> 
+    <div>Today errors: ${wCh}</div> `
 }
 
 if (aut.id!='') {loadStat ()}
