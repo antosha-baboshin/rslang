@@ -1,6 +1,7 @@
 import Aut from "../../api/aut";
 import { getUserWords } from "../../api/usersWords";
 import { GetUserWord } from "../utilities/interfaces/interfaces";
+import { checkPage } from "./checkPage";
 
 const aut = new Aut();
 aut.loadUser()
@@ -22,5 +23,7 @@ export const checkProgress = () => {
         el.innerHTML = '0%';
       }
     })
+  }).then(() => {
+    checkPage();
   })
 }

@@ -123,7 +123,6 @@ export const addWords = () => {
     const ARR = data.map((el: GetUserWord) => {
       return el.wordId;
     }).filter((el: string) => el !== undefined);
-
     addDifficultWords(ARR);
     addEasyWords();
     addLearnedWords(ARR);
