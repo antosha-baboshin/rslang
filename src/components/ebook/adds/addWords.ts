@@ -92,11 +92,9 @@ const addDifficultWords = (array: string[]): void => {
 
 export const addEasyWords = (): void => {
   const EASY_BUTTONS = document.querySelectorAll('.easy-button') as NodeListOf<HTMLElement>;
+  console.log(EASY_BUTTONS);
   EASY_BUTTONS.forEach((el: HTMLElement): void => {
-
     el.addEventListener('click', () => {
-
-      console.log('click easy');
 
       const ID = el.id.slice(5);
         console.log(true);
@@ -118,13 +116,14 @@ export const addEasyWords = (): void => {
 };
 
 export const addWords = () => {
-
+  addEasyWords();
   getUserWords(aut.id).then((data) => {
+    
     const ARR = data.map((el: GetUserWord) => {
       return el.wordId;
     }).filter((el: string) => el !== undefined);
+
     addDifficultWords(ARR);
-    addEasyWords();
     addLearnedWords(ARR);
   })
 };

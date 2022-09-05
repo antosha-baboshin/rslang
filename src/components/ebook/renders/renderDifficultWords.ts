@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import Aut from "../../api/aut";
-import { getUserWords } from "../../api/usersWords";
+import { getUserWords, updateUserWord } from "../../api/usersWords";
 import { BASE, getWordByID } from "../../api/words";
 import { GetUserWord, Word } from "../utilities/interfaces/interfaces";
 import { addAudioplayers } from "../adds/addAudioplayers";
-import { addWords } from "../adds/addWords";
+import { addEasyWords } from "../adds/addWords";
 import { checkProgress } from "../checks/checkProgress";
 import { renderLearningsButtons } from "./renderLearningButtons";
 
@@ -15,14 +15,13 @@ export const renderDifficultWords = () => {
   const WORDS_LIST_WRAPPER = document.querySelector('.words-list-wrapper') as HTMLDivElement;
   WORDS_LIST_WRAPPER.innerHTML = '';
 
+  console.log('render');
+
   getUserWords(aut.id).then((data) => {
 
     const ARR = data.map((el: GetUserWord) => {
       if (el.difficulty === 'difficult') return el.wordId;
     }).filter((el: string) => el !== undefined);
-
-    console.log('render', ARR);
-
     ARR.forEach((id: string) => {
       getWordByID(id).then((obj: Word | undefined): void => {
         WORDS_LIST_WRAPPER.innerHTML += `
@@ -52,9 +51,32 @@ export const renderDifficultWords = () => {
       }).then( () => {
         addAudioplayers();
         checkProgress();
+        addEasyWords();
+        addLearnedWordsForDiffLEvel();
       })
     })
-  }).then(() => {
-    addWords();
+  })
+}
+
+const addLearnedWordsForDiffLEvel = () => {
+  const LEARNED_BUTTONS = document.querySelectorAll('.learned-button') as NodeListOf<HTMLElement>;
+  LEARNED_BUTTONS.forEach((el: HTMLElement): void => {
+    el.addEventListener('click', () => {
+
+      const ID = el.id.slice(6);
+        updateUserWord({ 
+          userId: aut.id, 
+          wordId: ID, 
+          word: {
+            difficulty: 'learned',
+            optional: {
+              target: 0,
+              progress: 100
+            }
+          } 
+        }).then(() => {
+          renderDifficultWords();
+        })
+    });
   })
 }
