@@ -1,11 +1,6 @@
-import "./css/reset.css"
-import "./css/base.css"
-import "./css/main.css"
-import "./css/sidebar.css"
-//import "./assets/fonts/circular/stylesheet.css"
-//import "./assets/fonts/sofia-pro/stylesheet.css"
+import "./css/styles.css"
 
-import Aut from "./api/aut";
+import Aut from "./components/api/aut";
 
 const aut = new Aut();
 aut.loadUser()
@@ -23,3 +18,5 @@ document.getElementById('stsprint')!
   document.getElementById('statistics')!
   .addEventListener("click", ()=>window.location.href =`./statistic/statistic.html` )  
 
+
+console.log('1');

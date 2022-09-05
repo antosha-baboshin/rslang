@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { BASE, getAudioUrls } from "../../../api/words";
+import { BASE, getAudioUrls } from "../../api/words";
 
 export const addAudioplayers = (): void => {
   const AUDIOPLAYERS = document.querySelectorAll('.audio') as NodeListOf<HTMLAudioElement>;
