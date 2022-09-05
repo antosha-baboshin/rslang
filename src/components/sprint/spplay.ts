@@ -104,7 +104,7 @@ document.addEventListener("stoptimer", ()=>{
     console.log('END ');
     sessionStorage.setItem('spknown', JSON.stringify(rightW));
     sessionStorage.setItem('spnotknown', JSON.stringify(wrongW));
-    statistic(rightW.length, wrongW.length, `./sprint-final.html`)
+    statistic(rightW.length, wrongW.length,'sprint' ,`./sprint-final.html`)
 
     })
 

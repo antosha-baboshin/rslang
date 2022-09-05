@@ -4,22 +4,26 @@ const serv=process.env.SERVER
 const aut = new Aut();
 aut.loadUser()
 
+type Gamedata={
+  right: number;
+  wrong: number;
+}
 
-type stat = {
+type Stat = {
     data: number;
-    right: number;
-    wrong: number;
   }
 
- export async function statistic (right:number, wrong:number, url?:string){
-    console.log('statistic ',right,wrong, 'user ',aut)
+ export async function statistic (right:number, wrong:number,game:string, url?:string){
     if (aut.id !='')
     {
-    let dataStat:stat= {
-      data: 0,
-      right: 0,
-      wrong: 0 ,
+      const data = new Date();
+      const dat = data.getFullYear()+data.getMonth()*10000+data.getDate()*1000000 
+    let gamedat:Gamedata= {
+      right:0,
+      wrong:0
     };
+    let optional;
+    optional={};
     const  res= await fetch(`${serv}/users/${aut.id}/statistics`, {
       method: 'GET',   headers: {
         'Authorization': `Bearer ${aut.token}`,
@@ -29,31 +33,34 @@ type stat = {
    })  
    if (res.ok) {
        const data = await res.json();
-       dataStat= await data.optional as stat;
-   } else   console.log('none statistic ');
-   
-   const data = new Date();
-   const dat = data.getFullYear()+data.getMonth()*10000+data.getDate()*1000000
-   if (dataStat.data!=dat) { dataStat.right=0; dataStat.wrong=0}
-   dataStat.right += right;
-   dataStat.wrong += wrong; 
-   dataStat.data=dat;
+       const dataStat= await data.optional 
+       if (dataStat.data==dat) {optional=dataStat; if (game in optional) gamedat=dataStat[game]} 
+     } else {optional={}; console.log('none statistic ')} ;
 
-   addStat(dataStat);
+   optional.data=dat
+   gamedat.right += right;
+   gamedat.wrong += wrong; 
+   optional[game]=gamedat;
+
+   
+   addStat(optional);
    }
    if (url) window.location.href =url
    
   }
   
-  function addStat (sts:stat){
-
+  function addStat (sts:{}){
+    console.log(JSON.stringify({
+      "learnedWords": 0,
+      "optional": sts,
+    }))
     const  res= fetch(`${serv}/users/${aut.id}/statistics`, {
       method: 'PUT',   headers: {
         'Authorization': `Bearer ${aut.token}`,
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
+     body: JSON.stringify({
         "learnedWords": 0,
         "optional": sts,
       })
