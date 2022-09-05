@@ -14,11 +14,15 @@ aut.loadUser()
 export const renderDifficultWords = () => {
   const WORDS_LIST_WRAPPER = document.querySelector('.words-list-wrapper') as HTMLDivElement;
   WORDS_LIST_WRAPPER.innerHTML = '';
+
   getUserWords(aut.id).then((data) => {
+
     const ARR = data.map((el: GetUserWord) => {
       if (el.difficulty === 'difficult') return el.wordId;
     }).filter((el: string) => el !== undefined);
-    console.log(ARR);
+
+    console.log('render', ARR);
+
     ARR.forEach((id: string) => {
       getWordByID(id).then((obj: Word | undefined): void => {
         WORDS_LIST_WRAPPER.innerHTML += `
@@ -44,11 +48,13 @@ export const renderDifficultWords = () => {
         <audio controls class='audio' id='audio-${obj!.id}'></audio>
         <div class="learning-buttons">${renderLearningsButtons(obj!.id)}</div>
       </div>`
+
       }).then( () => {
         addAudioplayers();
-        addWords();
         checkProgress();
       })
     })
+  }).then(() => {
+    addWords();
   })
 }
