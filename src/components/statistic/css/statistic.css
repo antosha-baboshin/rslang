@@ -141,3 +141,9 @@ body {
     height: auto;
     filter: invert(100%);
 }
+
+.header2 {
+    margin: 20px 0;
+    font-size: 1.5em;
+    font-weight: bold;
+}

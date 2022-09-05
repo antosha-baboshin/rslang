@@ -1,4 +1,5 @@
 import './css/authorization.css'
+import '../../css/styles.css';
 import Aut from '../api/aut'
 
 console.log('start AUT')

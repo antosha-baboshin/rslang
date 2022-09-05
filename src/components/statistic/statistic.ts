@@ -1,5 +1,5 @@
-import './css/statistic.css'
-import '../../css/styles.css'
+import './css/statistic.css';
+import '../../css/styles.css';
 import Aut from "../api/aut";
 
 const serv=process.env.SERVER

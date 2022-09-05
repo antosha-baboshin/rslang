@@ -1,7 +1,7 @@
 html {
     scroll-behavior: smooth;
 }
-body {
+.body {
     font-family: 'Sofia', sans-serif;
     color: #000;
     font-size: 15px;
@@ -12,10 +12,9 @@ body {
     font-weight: 400;
     height: 1200px;
     position: relative;
-}
-.body {
     width: 100%;
 }
+
 .none {
     display: none !important;
 }
