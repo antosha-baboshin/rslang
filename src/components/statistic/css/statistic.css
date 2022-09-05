@@ -43,7 +43,7 @@ body {
 .allcourses-sprint-block-item {
     display: flex;
     width: 540px;
-    height: 140px;
+    height: 150px;
     margin-top: 15px;
     border-radius: 20px;
     align-items: center;
