@@ -13,7 +13,7 @@
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
     "clean-webpack-plugin": "^4.0.0",
-	"copy-webpack-plugin": "^11.0.0",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
     "dotenv-webpack": "^8.0.1",
     "eslint": "^8.20.0",
@@ -29,6 +29,7 @@
   "dependencies": {
     "babel-loader": "^8.2.5",
     "copy-webpack-plugin": "^11.0.0",
+    "dotenv": "^16.0.2",
     "html-loader": "^4.1.0",
     "os": "^0.1.2",
     "path": "^0.12.7"

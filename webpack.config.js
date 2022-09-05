@@ -10,7 +10,6 @@ const PATHS = {
     dist: path.resolve(process.cwd(), "dist")
   };
 
-
 const baseConfig = {
     entry: {
         main: `${PATHS.src}/index.ts`,
@@ -124,7 +123,7 @@ const baseConfig = {
         }),
 
         new CleanWebpackPlugin(),
-        new Dotenv()
+        new Dotenv(),
     ],
     optimization: {
         splitChunks: {
