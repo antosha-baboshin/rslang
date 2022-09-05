@@ -1,4 +1,4 @@
-let elem = document.documentElement;
+const elem = document.documentElement;
 function openFullscreen() {
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
@@ -31,11 +31,11 @@ const COLOR_CODES = {
   }
 };
 
-const TIME_LIMIT = 10;
+const TIME_LIMIT = 60;
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval:NodeJS.Timer;
-let remainingPathColor = COLOR_CODES.info.color;
+const remainingPathColor = COLOR_CODES.info.color;
 
 document.getElementById("timer")!.innerHTML = `
 <div class="base-timer">
@@ -80,7 +80,7 @@ function startTimer() {
       
     if (timeLeft === 0) {
 
-      let event = new Event('stoptimer');
+      const event = new Event('stoptimer');
       document.dispatchEvent(event)
       onTimesUp();
     }
@@ -89,7 +89,7 @@ function startTimer() {
 
 function formatTime(time:number) {
   const minutes = Math.floor(time / 60);
-  let seconds = time % 60;
+  const seconds = time % 60;
 
   //if (seconds < 10) {
   //  seconds = `0${seconds}`;

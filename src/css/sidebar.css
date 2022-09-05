@@ -24,11 +24,17 @@
 .nav-list li {
     margin-bottom: 60px;
 }
+/* .sidebar_game {
+    margin-top: 20px;
+    width: 70px !important;
+    height: 70px !important;
+    background-color: white;
+} */
 .nav-list img {
     display: inline-block;
     vertical-align: middle;
     margin-right: 10px;
-    width: 26px;
+    width: 48px;
     height: auto;
     object-fit: none;
 }

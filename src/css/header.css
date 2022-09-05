@@ -1,6 +1,4 @@
 /* header */
-
-
 .header_container {
     display: flex;
     width: 620px;
@@ -9,6 +7,7 @@
     margin-top: 34px;
     border-radius: 20px;
     flex-direction: row;
+    margin-left: 50px;
 }
 .header_img {
     margin-left: 90px;

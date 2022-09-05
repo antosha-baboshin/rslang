@@ -1,5 +1,6 @@
 import startTimer from './timer'
 import './css/sprint-play.css'
+import {statistic} from "../api/stat";
 
 const url =new URL(window.location.href)
 
@@ -13,23 +14,23 @@ console.log('sprint PLAY level ',level)
 let points=0
 
 type word ={
-    group:  Number, 
-    page:   Number, 
-    word:   String, 
-    image:  String, 
-    audio:  String, 
-    audioMeaning:  String, 
-    audioExample:  String, 
-    textMeaning:   String, 
-    textExample:   String,     
-    transcription: String,  
-    wordTranslate: String,
-    textMeaningTranslate: String,
-    textExampleTranslate: String
+    group:  number, 
+    page:   number, 
+    word:   string, 
+    image:  string, 
+    audio:  string, 
+    audioMeaning:  string, 
+    audioExample:  string, 
+    textMeaning:   string, 
+    textExample:   string,     
+    transcription: string,  
+    wordTranslate: string,
+    textMeaningTranslate: string,
+    textExampleTranslate: string
   }
 
-let wrongW:word[]=[];
-let rightW:word[]=[];
+const wrongW:word[]=[];
+const rightW:word[]=[];
 let otv=0;
 let weight=10;
 
@@ -59,8 +60,6 @@ async function getWords(lvl:number,pag:number){
 for (let i=0; i<=MAX_PAGE; i++ ){
    getWords(level,i)    
 }
-
-
 
 let w1=0;
 let w2=0;
@@ -105,8 +104,10 @@ document.addEventListener("stoptimer", ()=>{
     console.log('END ');
     sessionStorage.setItem('spknown', JSON.stringify(rightW));
     sessionStorage.setItem('spnotknown', JSON.stringify(wrongW));
-    window.location.href =`./sprint-final.html`
+    statistic(rightW.length, wrongW.length, `./sprint-final.html`)
+
     })
+
 /*
 let elem = document.documentElement;
 function openFullscreen() {
@@ -122,7 +123,7 @@ function closeFullscreen() {
 }
 */
 
-function setSeries(nom:number){
+function setSeries(nom:number) {
   (document.getElementById("circle1") as HTMLInputElement).style.backgroundColor="rgb(241, 239, 239)";
   (document.getElementById("circle2") as HTMLInputElement).style.backgroundColor="rgb(241, 239, 239)";
   (document.getElementById("circle3") as HTMLInputElement).style.backgroundColor="rgb(241, 239, 239)";
@@ -130,7 +131,6 @@ function setSeries(nom:number){
   if (nom>0)  (document.getElementById("circle1") as HTMLInputElement).style.backgroundColor= "rgb(219, 176, 245)" ;
   if (nom>1)  (document.getElementById("circle2") as HTMLInputElement).style.backgroundColor= "rgb(219, 176, 245)" ;
   if (nom>2)  (document.getElementById("circle3") as HTMLInputElement).style.backgroundColor= "rgb(219, 176, 245)" ;   
-
 }
 
 

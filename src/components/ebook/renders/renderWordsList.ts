@@ -1,5 +1,5 @@
 import { BASE, getWords } from "../../api/words";
-import { Word } from "../../../utilities/interfaces/interfaces";
+import { Word } from "../utilities/interfaces/interfaces";
 import { addAudioplayers } from "../adds/addAudioplayers";
 import { addWords } from "../adds/addWords";
 import { checkPage } from "../checks/checkPage";

@@ -100,8 +100,8 @@ body {
 }
 
 .show-img {
-    width: 90px;
-    height: auto;
+    width: 180px;
+    height: 180px;
     border-radius: 100px;
     box-shadow: 3px 3px 3px gray;
     border: solid 1px black;

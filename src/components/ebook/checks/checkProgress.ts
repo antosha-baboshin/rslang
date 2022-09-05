@@ -1,6 +1,6 @@
 import Aut from "../../api/aut";
 import { getUserWords } from "../../api/usersWords";
-import { GetUserWord } from "../../../utilities/interfaces/interfaces";
+import { GetUserWord } from "../utilities/interfaces/interfaces";
 
 const aut = new Aut();
 aut.loadUser()
@@ -17,7 +17,7 @@ export const checkProgress = () => {
       const ID = el.id.slice(9);
       if (ARR.includes(ID)) {
         const CURRENT_WORD = data.find((obj: GetUserWord) => obj.wordId === ID);
-        el.innerHTML = CURRENT_WORD.optional.progress + '%';
+        el.innerHTML = Math.round(CURRENT_WORD.optional.progress) + '%';
       } else {
         el.innerHTML = '0%';
       }

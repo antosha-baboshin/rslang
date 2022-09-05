@@ -6,24 +6,38 @@
     <title>RSLang</title>
 </head>
 <body>
-    <div id="authority">
+    <header class="header">
+        <div class="header-container">
+            <div class="header-text">
+              <p class="header-text">Learning words is more convenient if you have a profile!</p>
+              <p class="header-text">You will have access to statistics!</p>
+              <p class="header-text">You can create your own dictionary!</p> 
+            </div>
+            <img class="header_img" src="../assets/img/header-img.jpeg">
+        </div>
+    </header>
+    <div class="main-auth-block">
+      <div id="authority">
         <div id="usrname">
-            <p><b>User name:</b>
-            <input type="text" size="40">
+            <p><b>User name:</span></b></p>
+            <input type="text" size="40" class="auth-input" placeholder="User name">
         </div>
         <div id="usremail">
-            <p><b>E-mail:</b>
-            <input type="text" size="40">
+            <p><b>E-mail: <span class="point-red">*</span></b></p>
+            <input type="text" size="40" class="auth-input" placeholder="E-mail *">
         </div>
         <div id="usrpassword">
-            <p><b>Password:</b>
-            <input type="text" size="40">
+            <p><b>Password: <span class="point-red">*</span></b></p>
+            <input type="text" size="40" class="auth-input" placeholder="Password *">
         </div>
-        <div id="usrimagedropbox">Drag avatar here</div>
-        <div id="usrimage"></div>
-        <div id="usrsignin">Sign In</div>
-        <div id="usrsignout">Sign Out</div>
-        <div id="usradd">Create new user</div>
+        <div class="user-wrapper">
+          <button id="usradd" class="sprint-btn-play" id="usrnew">Create new user</button>
+          <button id="usrsignin" class="auth-btn purple" id="usrin">Sign In</button>
+          <button id="usrsignout" class="auth-btn pink" id="usrout">Sign Out</button>
+          <div id="usrimagedropbox" >
+            <img id="usrimage" src="" class="img-avatar"></img>
+          </div>
+        </div>
     </div>
-    </body>
+</body>
 </html>

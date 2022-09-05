@@ -1,24 +1,27 @@
 import './css/challenge-final.css'
+
 const serv=process.env.SERVER
 
 console.log('FINAL')
 const know=document.getElementById('spknow') as  HTMLInputElement ;
 const notknow=document.getElementById('spnotknow') as  HTMLInputElement ;
 
+
+
 type word ={
-    group:  Number, 
-    page:   Number, 
-    word:   String, 
-    image:  String, 
-    audio:  String, 
-    audioMeaning:  String, 
-    audioExample:  String, 
-    textMeaning:   String, 
-    textExample:   String,     
-    transcription: String,  
-    wordTranslate: String,
-    textMeaningTranslate: String,
-    textExampleTranslate: String
+    group:  number, 
+    page:   number, 
+    word:   string, 
+    image:  string, 
+    audio:  string, 
+    audioMeaning:  string, 
+    audioExample:  string, 
+    textMeaning:   string, 
+    textExample:   string,     
+    transcription: string,  
+    wordTranslate: string,
+    textMeaningTranslate: string,
+    textExampleTranslate: string
   }
   
   
@@ -64,4 +67,4 @@ function playaudio(src:string){
         const audio = new Audio(serv+'/'+src);
         audio.play()
        }
-    
+
