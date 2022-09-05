@@ -29,3 +29,10 @@ body {
     background: transparent;
     font-size: 0;
 }
+
+.body-components {
+    max-height:none;
+    min-height: 100vh;
+    height: 1100px;
+    position: relative;
+}

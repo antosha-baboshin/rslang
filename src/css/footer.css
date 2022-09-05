@@ -60,3 +60,12 @@
 .presentation:hover {
   color: gold;
 }
+
+.footer-components {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  position: absolute;
+  bottom: 0;
+  min-width: 100%;
+}
