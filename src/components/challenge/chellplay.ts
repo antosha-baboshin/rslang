@@ -71,31 +71,27 @@ function game(){
   const rnd= Math.trunc(Math.random()*(MAX_OTV))
   wrd=reswrd[rnd];
   
-  console.log(rnd+1)
   playaudio(`${serv}/${wrd.audio}`)
 
-  console.log('Вервых: ',rightW.length, '   неверных: ',wrongW.length)
   }
 
 function addSpsWrd(w:word,num:number){
   return `<div class="one-word-wrapper"> 
-   <div class="circle small-text" id="cicle${num}" eng="${w.word}">${num}</div> 
+   <div class="circle small-text" id="cicle${num}" answer="${num}">${num}</div> 
    <div class="rus-text" id="word${num}">${w.wordTranslate}</div> 
    </div>`
 }
 
-const wrong = document.getElementById('spsword') as HTMLInputElement;
-wrong.addEventListener("click", (e)=>{
-  const circle = e.target as  HTMLElement
-  const eng =circle.getAttribute('eng')
-
-  if (eng) {
-    if (eng==wrd.word) 
-    {circle.style.backgroundColor="rgb(219, 176, 245)";   
-    playaudio("../assets/sound/right.mp3") 
-    if (!wrng) rightW.push(wrd)
-    wrng=true;
-  }
+function ans(num:number)
+{ if (num>0 && num<=MAX_OTV){
+    const circle = document.getElementById(`cicle${num}`) as HTMLInputElement;
+    if (circle){
+     if (reswrd[num-1].word==wrd.word) 
+       {circle.style.backgroundColor="rgb(219, 176, 245)";   
+       playaudio("../assets/sound/right.mp3") 
+       if (!wrng) rightW.push(wrd)
+       wrng=true;
+      }
     else 
     {
      if (!wrng) wrongW.push(wrd) 
@@ -103,12 +99,20 @@ wrong.addEventListener("click", (e)=>{
      circle.style.backgroundColor="rgb(255, 71, 125)";  
     playaudio("../assets/sound/error.mp3") 
     }
+    }
   }
+}
+const wrong = document.getElementById('spsword') as HTMLInputElement;
+wrong.addEventListener("click", (e)=>{
 
+  const circle = e.target as  HTMLElement
+  const answ =circle.getAttribute('answer') 
+  if (answ)  ans(Number(answ))
     }, false);
 
-  const clkvoice = document.getElementById('clkvoice') as HTMLInputElement;
-  clkvoice.addEventListener("click",() => {
+
+const clkvoice = document.getElementById('clkvoice') as HTMLInputElement;
+clkvoice.addEventListener("click",() => {
        playaudio(`${serv}/${wrd.audio}`)
    }  )
   
@@ -138,3 +142,8 @@ wrong.addEventListener("click", (e)=>{
         playaudio(`${serv}/${wrd.audio}`)
     }
       }  )
+
+  document.addEventListener("keypress",(key) => {
+    if (key.key>='1' && key.key<='9') ans(Number(key.key))
+  })
+  

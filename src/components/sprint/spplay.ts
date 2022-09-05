@@ -133,4 +133,15 @@ function setSeries(nom:number) {
   if (nom>2)  (document.getElementById("circle3") as HTMLInputElement).style.backgroundColor= "rgb(219, 176, 245)" ;   
 }
 
-
+document.addEventListener("keydown",(key) => {
+  if (key.key== "ArrowLeft"){
+    if (w1!=w2) wr(words[w1]);
+    if (w1==w2) rt(words[w1])
+    game()
+  }
+  if (key.key== "ArrowRight"){
+    if (w1==w2) wr(words[w1])
+    if (w1!=w2) rt(words[w1])
+    game()
+  }
+})

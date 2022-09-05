@@ -5,11 +5,8 @@ html {
 body {
     font-family: 'Sofia', sans-serif;
     color: #000;
-    font-size: 15px;
-    line-height: 1;
     background-color: white;
     display: flex;
-    font-weight: 400;
     max-height: 1020px;
 }
 
@@ -42,7 +39,7 @@ body {
     border-radius: 20px;
     align-items: center;
     box-shadow: 3px 3px 3px gray;
-    border: solid 1px black;
+    border: solid 2px black;
 }
 
 .allcourses-sprint-item {
@@ -86,6 +83,12 @@ body {
     align-items: center;
     justify-content: center;
     margin-top: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.allcourses-sprint-viewbtn:hover {
+    color: gold;
 }
 
 .sprint-btn-play {
@@ -101,5 +104,62 @@ body {
     font-weight: bold;
     font-size: 18px;
     box-shadow: 3px 3px 3px gray;
-    border: solid 1px black;
+    border: solid 2px black;
+    cursor: pointer;
+}
+
+.sprint-btn-play:hover {
+    color: gold;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 132px;
+    height: 853.12px;
+    background-color: black;
+    margin: 34px 0 23px 32px;
+    border-radius: 25px;
+}
+
+.sidebar-nav {
+    margin-top: 100px;
+}
+
+.nav-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 44px;
+}
+
+.nav-list {
+    font-size: 15.71px;
+}
+
+.nav-list li {
+    margin-bottom: 60px;
+}
+
+.nav-list img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 26px;
+    width: 48px;
+    height: auto;
+    object-fit: none;
+}
+
+.sidebar-help {
+    margin-top: auto;
+}
+
+.help {
+    font-size: 15.7px;
+}
+
+.help-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 50px;
 }

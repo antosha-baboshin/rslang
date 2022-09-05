@@ -61,11 +61,17 @@ body {
     font-size: 18px;
     box-shadow: 3px 3px 3px gray;
     border: solid 2px black;
+    cursor: pointer;
+}
+
+.sprint-btn-play:hover {
+    color: gold;
 }
 
 .voice {
     width: 30px;
     height: auto;
+    filter: invert(100%);
 }
 
 .words {

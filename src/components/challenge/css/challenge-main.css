@@ -92,22 +92,6 @@ body {
     color: gold;
 }
 
-.sprint-btn-play {
-    display: flex;
-    width: 160px;
-    height: 40px;
-    background-color: rgb(241, 239, 239);
-    border-radius: 10px;
-    color: black;
-    align-items: center;
-    justify-content: center;
-    margin-top: 5px;
-    font-weight: bold;
-    font-size: 18px;
-    box-shadow: 3px 3px 3px gray;
-    border: solid 1px black;
-}
-
 .sidebar {
     display: flex;
     flex-direction: column;

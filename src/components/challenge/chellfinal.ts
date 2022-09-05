@@ -45,7 +45,7 @@ notkwords.forEach((a)=>
 
 function spis(wrd:word){
 
-     return `<li class="words"> <img src="../assets/icons/woman-voice-svgrepo-com.svg" alt="voice" class="voice" audio="${wrd.audio}">  ${wrd.word} - ${wrd.wordTranslate}</li>`
+     return `<li class="words"> <img src="../assets/icons/audiocall.svg" alt="voice" class="voice" audio="${wrd.audio}">  ${wrd.word} - ${wrd.wordTranslate}</li>`
     //return `<li class="words"><img src="${serv}/${wrd.image}" alt="voice" class="voice" audio="${wrd.audio}">${wrd.word} - ${wrd.wordTranslate}</li>`
 
 }
