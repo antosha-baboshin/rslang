@@ -1,4 +1,10 @@
 const MAIN_URL=`../index.html`
+function Error(txt:string)
+{
+  console.log('ERROR ',txt);
+  alert(txt);
+}
+
 class Aut {
     name:string;
     email:string;
@@ -32,7 +38,7 @@ class Aut {
       reader.readAsDataURL(file);
     }
 
-    async addUser(email:string, password:string, name:string,url?:string) {
+    async addUser(email:string, password:string, name:string) {
        const usr= (this.avatara!='' ) ?{name:name, email:email, password:password,img_buf:this.avatara }
                                     :{name:name, email:email, password:password};
        fetch(process.env.SERVER+'/users', {
@@ -44,16 +50,17 @@ class Aut {
        body: JSON.stringify(usr)
      })
       .then(async res => {
-          if (res.ok){
+          if (res.status==413) throw res.statusText;
           const data=  await res.json()
+          if (!res.ok) throw data.error.errors[0].message;
           this.id=data.id;
           this.email=email;
           this.name=name;
           console.log('User added', data.id)
-          this.SignIn(email, password,url)
-          } else alert("Users ERROR") 
+          this.SignIn(email, password)
+          
       })
-      .catch(() => console.log('ERROR adding user'))
+      .catch((err) => Error('ERROR adding user: '+err))
     }
 
     viewAva(elem: HTMLElement){
@@ -74,7 +81,7 @@ class Aut {
         //this.viewAva(imgAva) 
     }
 
-    async SignIn(email:string, password:string,url?:string){
+    async SignIn(email:string, password:string){
       fetch(process.env.SERVER+'/signin', {
      method: 'POST',
      headers: {
@@ -84,22 +91,25 @@ class Aut {
      body: JSON.stringify({email:email, password:password})
    })
     .then(async  res => {
+        if (!res.ok) throw "Incorrect username or password entered. Please try again.";
         const data=  await res.json()
+      
         this.id=data.userId;
         this.token=data.token;
         this.refreshToken=data.refreshToken;
         this.email=email;
         this.name=data.name;
        
-        console.log('User autorization is successful')
+        console.log('User autorization is successful ')
         this.savUser();
-        this.getUser();
-        if (url && url!='') window.location.href=url; 
+        this.getUser(()=>window.location.href=document.referrer);
+        
+        
     })
-    .catch(() => alert("ERROR authorization"))
+    .catch((w) => Error(w))
   }
 
-  async getUser(){
+  async getUser(back?:()=>{}){
     fetch(process.env.SERVER+'/users/'+this.id, {
    method: 'GET',
    //credentials: 'include',
@@ -116,6 +126,7 @@ class Aut {
       if (data.img_buf!='') this.avatara=data.img_buf;
       this.savUser();
       this.viewUser()
+      if (back) back();
   })
   .catch(res => console.log('ERROR get user',res))
 }
@@ -157,7 +168,7 @@ class Aut {
       }
     }, false);
   }
-  loadUser(){
+ loadUser(){
    if (localStorage.getItem('autority')!==null) {
      const load=JSON.parse(localStorage.getItem('autority') as string);
      Object.assign(this,load);
@@ -183,9 +194,9 @@ class Aut {
     })
      .then(async  res => {
          const data=  await res.json()
-         this.token=data.token;
+         this.token= data.token;
          this.refreshToken=data.refreshToken;
-         console.log('New token generated. ID: ',this.id,'  token:',this.token)
+         console.log('New token generated. ' )
          this.savUser();
      })
      .catch(()=> {console.log('ERROR renew token'); this.SignOut()}) 
